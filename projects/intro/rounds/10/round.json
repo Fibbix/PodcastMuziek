@@ -1,0 +1,24 @@
+{
+  "note": "A, B en C gelijk aan ronde 9 (zelfde piano's, zelfde fluitsignaal), maar het tempo is iets lager: 100 BPM in plaats van 108.",
+  "created": "2026-11-11T18:49:02",
+  "options": {
+    "a": {
+      "title": "Piano (100 BPM)",
+      "description": "Het goedgekeurde deuntje met piano, e-piano en zachte hartslag-kick, nu op 100 BPM (was 108). Fluitsignaal zoals in ronde 9.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T18:49:37"
+    },
+    "b": {
+      "title": "Zachtere piano (100 BPM)",
+      "description": "Zoals A, met de zachtere, rondere piano. 100 BPM (was 108). Fluitsignaal zoals in ronde 9.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T18:49:42"
+    },
+    "c": {
+      "title": "Doffe piano (100 BPM)",
+      "description": "Zoals B, met de nog doffere, wollige piano. 100 BPM (was 108). Fluitsignaal zoals in ronde 9.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T18:49:47"
+    }
+  }
+}
