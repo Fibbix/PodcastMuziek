@@ -1,0 +1,24 @@
+{
+  "note": "A = ongewijzigd. B = A met een zachtere piano: minder fel van klank, zachter aangeslagen, ronder (hoog iets weggefilterd) en iets meer galm. C = A zonder piano: de melodie wordt gespeeld door de elektrische piano, die ook de akkoorden speelt.",
+  "created": "2026-11-11T17:44:41",
+  "options": {
+    "a": {
+      "title": "Zelfde deuntje, sneller",
+      "description": "Precies de vorige A (piano + e-piano + zachte hartslag, zelfde einde), alleen het tempo gaat omhoog van 92 naar 108 BPM.\nAkkoorden Am – F – C – G – Am.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:44:46"
+    },
+    "b": {
+      "title": "A met zachtere piano",
+      "description": "Precies A, maar de piano is minder intens: zachter aangeslagen, minder fel van klank, het scherpe hoog iets weggefilterd en wat meer galm. Daardoor ligt de melodie meer ín de muziek dan erbovenop.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:44:51"
+    },
+    "c": {
+      "title": "A zonder piano (e-piano melodie)",
+      "description": "Precies A, maar zonder piano. De melodie wordt nu gespeeld door de elektrische piano, hetzelfde instrument als de akkoorden. Klinkt daardoor zachter, ronder en meer als één geheel.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:44:55"
+    }
+  }
+}

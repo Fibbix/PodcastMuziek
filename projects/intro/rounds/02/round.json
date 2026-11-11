@@ -1,0 +1,24 @@
+{
+  "note": "Alle drie variaties op A (fluitsignaal + wegstervend publiek), nu max. 10 sec, met een vrolijkere akkoordenreeks (Am – F – C – G – Am) en een hoger tempo (92 BPM). Oplopend in energie: A = piano, net iets lichter; B = elektrische piano, modern; C = piano + e-piano + zachte hartslag-beat.",
+  "created": "2026-11-11T16:55:08",
+  "options": {
+    "a": {
+      "title": "Fluitsignaal: piano, net iets lichter",
+      "description": "Dichtst bij de vorige A: fluitsignaal, het publiek juicht en sterft weg, dan solopiano. Het tempo is hoger (92 BPM) en de akkoorden zijn hoopvoller (Am – F – C – G – Am). Een doorlopende linkerhand geeft wat beweging. Minst energiek van de drie.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T16:56:16"
+    },
+    "b": {
+      "title": "Fluitsignaal: elektrische piano",
+      "description": "Zelfde opening (fluitsignaal, publiek sterft weg), maar de muziek is een moderne, heldere elektrische piano met een zachte pad en subbas. De akkoorden worden licht gesyncopeerd aangeslagen, met een heel zachte shaker op de achtergrond. Middelste stap qua energie.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T16:56:20"
+    },
+    "c": {
+      "title": "Fluitsignaal: piano + e-piano + hartslag",
+      "description": "Zelfde opening. Daarna speelt de piano de melodie boven warme e-piano-akkoorden, met een zachte, doffe 'hartslag'-kick op elke tel en een licht pompende pad. Dat geeft een rustig voortstuwend gevoel. Meest energiek van de drie, maar nog steeds ingetogen.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T16:56:24"
+    }
+  }
+}

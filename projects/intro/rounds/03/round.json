@@ -1,0 +1,24 @@
+{
+  "note": "A = vorige C met een nieuw einde: de beat landt met één laatste tik op het slotakkoord, het pompen stopt daar, de melodie lost netjes op naar A en het akkoord klinkt natuurlijk uit. B en C = veel energiekere versies: B als band met drums (110 BPM), C elektronisch met riser + drop (120 BPM).",
+  "created": "2026-11-11T17:04:38",
+  "options": {
+    "a": {
+      "title": "Hartslag, met nieuw einde",
+      "description": "De vorige C (piano + e-piano + hartslag-kick, 92 BPM), met een nieuw einde. De melodie lost op via B naar A, de beat landt met één laatste tik op het slotakkoord en het pompen stopt daar. Het akkoord is nu een gewoon A mineur (niet meer open) en klinkt natuurlijk uit.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:05:51"
+    },
+    "b": {
+      "title": "Energiek: met band",
+      "description": "Zelfde opening, maar na het fluitsignaal valt een drumfill in en speelt een volle 'band' (110 BPM): kick, snare op 2 en 4, hihats, een bas in achtsten, e-piano-akkoorden op elke tel en de pianomelodie erboven. Eindigt met een crash op het slotakkoord.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:05:55"
+    },
+    "c": {
+      "title": "Energiek: elektronisch met drop",
+      "description": "Tijdens het fluitsignaal bouwt een riser op die in een dikke klap eindigt. Daarna volgt een elektronische beat op 120 BPM: kick op elke tel, clap, open hihats, een bas tussen de tellen, een snelle getokkelde arpeggio en een pompende pad. De pianomelodie gaat erbovenop. Eindigt met een klap en een uitwaaierende sweep.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:05:58"
+    }
+  }
+}

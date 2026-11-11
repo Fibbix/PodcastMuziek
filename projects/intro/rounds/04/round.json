@@ -1,0 +1,24 @@
+{
+  "note": "Geen extra achtergrondlagen meer: alle drie dezelfde rustige bezetting als vorige A (piano + e-piano + zachte hartslag) en dezelfde opening met fluitsignaal. A = zelfde deuntje, sneller (108 BPM). B en C = compleet nieuwe melodieën met een hoger tempo.",
+  "created": "2026-11-11T17:09:30",
+  "options": {
+    "a": {
+      "title": "Zelfde deuntje, sneller",
+      "description": "Precies de vorige A (piano + e-piano + zachte hartslag, zelfde einde), alleen het tempo gaat omhoog van 92 naar 108 BPM.\nAkkoorden Am – F – C – G – Am.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:10:02"
+    },
+    "b": {
+      "title": "Nieuw deuntje: stijgend (104 BPM)",
+      "description": "Nieuwe melodie met een opwaartse 'hook' in achtsten (A–C–E omhoog). Voelt vastberaden en vooruitkijkend, maar nog steeds met een weemoedig randje. Zelfde rustige bezetting en opening.\nAkkoorden Am – G – F – G – Am, 104 BPM.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:10:27"
+    },
+    "c": {
+      "title": "Nieuw deuntje: hoopvol (100 BPM)",
+      "description": "Nieuwe melodie in C groot met een uitstapje naar A mineur: warm en hoopvol-nostalgisch, het meest 'opgewekt' van de drie. Zelfde rustige bezetting en opening.\nAkkoorden C – G – Am – F – C, 100 BPM.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:10:32"
+    }
+  }
+}

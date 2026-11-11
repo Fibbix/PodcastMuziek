@@ -1,0 +1,24 @@
+{
+  "note": "Eerste ronde: drie verschillende uitwerkingen van 'tribune sterft weg + rustige, licht sombere melodie'.",
+  "created": "2026-11-11T16:45:34",
+  "options": {
+    "a": {
+      "title": "Het laatste fluitsignaal",
+      "description": "Een vol stadion, dan klinkt het laatste fluitsignaal. Het publiek juicht nog één keer en sterft daarna langzaam weg, alsof je steeds verder wegloopt. Daaruit komt een sobere solopiano op: A mineur, 76 BPM.\nAkkoorden Am – F – Dm – E – Am. ±21 sec.",
+      "duration": 21.06,
+      "rendered": "2026-11-11T16:46:40"
+    },
+    "b": {
+      "title": "Oude radio-uitzending",
+      "description": "Het stadion klinkt alsof het uit een oude radio komt, met vinylgekraak erbij. Langzaam vervaagt het, en een warme elektrische piano met een zachte pad neemt het over. Nostalgisch en weemoedig: E mineur, 80 BPM, met een lichte 'tape-wobble'.\nAkkoorden Em9 – Cmaj7 – G – B7sus4/B7 – Em. ±19 sec.",
+      "duration": 21.03,
+      "rendered": "2026-11-11T16:46:48"
+    },
+    "c": {
+      "title": "Lege tribune",
+      "description": "Een brullend stadion lost op in galm, tot alleen de wind over een lege tribune overblijft. Een getokkelde gitaar-arpeggio en een eenzame, fluitachtige melodie vertellen verder. Filmisch en weemoedig: D mineur, 70 BPM.\nAkkoorden Dm – Bb – F – C – Dm. ±21 sec.",
+      "duration": 25.18,
+      "rendered": "2026-11-11T16:46:56"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "note": "A = ongewijzigd (goedgekeurd). B = nieuw deuntje met een zachte, getokkelde gitaar (fingerpicking, donkerder van klank, geen geslagen akkoorden). C = compleet nieuw deuntje op vibrafoon. Opening (fluitsignaal + publiek) en zachte hartslag-kick blijven gelijk.",
+  "created": "2026-11-11T17:26:42",
+  "options": {
+    "a": {
+      "title": "Zelfde deuntje, sneller",
+      "description": "Precies de vorige A (piano + e-piano + zachte hartslag, zelfde einde), alleen het tempo gaat omhoog van 92 naar 108 BPM.\nAkkoorden Am – F – C – G – Am.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:27:20"
+    },
+    "b": {
+      "title": "Zachte gitaar, nieuw deuntje",
+      "description": "Nieuwe melodie op een zachte, getokkelde gitaar (fingerpicking, warm en donker van klank, geen geslagen akkoorden). Een tweede gitaar speelt de melodie, met een ronde subbas en de zachte hartslag-kick eronder.\nAkkoorden Am – Em – F – G – Am, 100 BPM.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:27:24"
+    },
+    "c": {
+      "title": "Vibrafoon, nieuw deuntje",
+      "description": "Compleet nieuwe melodie in D mineur op vibrafoon: zachte metalen klanken met een licht trillende 'tremolo'. Klinkt dromerig en nostalgisch. Eronder een zachte pad, subbas en de hartslag-kick.\nAkkoorden Dm – Bb – F – C – Dm, 104 BPM.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:27:28"
+    }
+  }
+}

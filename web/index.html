@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podcast Studio</title>
+<style>
+:root{
+  --bg:#f5f3ef;--panel:#ffffff;--panel2:#efece6;--text:#1e1d1b;--muted:#6d6a63;--line:#e3e0d9;
+  --accent:#d9542a;--accent-soft:#fbe5db;--wave:#cfcabf;--ok:#2d8a4b;--ok-soft:#dcf0e2;--star:#e3a113;--err:#c0392b;
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#131312;--panel:#1c1b19;--panel2:#25241f;--text:#eeebe5;--muted:#9b978e;--line:#2e2d29;
+  --accent:#ff7a45;--accent-soft:#3b2219;--wave:#48453f;--ok:#5cc47e;--ok-soft:#1a3123;--star:#f2b632;--err:#ff6b5b;
+  --shadow:none;
+}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+.app{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+aside{border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto;background:var(--panel)}
+.brand{display:flex;align-items:center;gap:10px;padding:0 6px 18px;font-weight:700;font-size:17px}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:var(--accent);display:grid;place-items:center;color:#fff;font-size:14px}
+.group{margin:14px 0 4px;padding:0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.proj{display:block;width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:9px 10px;margin:2px 0}
+.proj:hover{background:var(--panel2)}
+.proj.active{background:var(--accent-soft)}
+.proj .t{font-weight:600;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.proj .s{font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.badge{font-size:11px;padding:1px 7px;border-radius:99px;background:var(--panel2);color:var(--muted);font-weight:600}
+.badge.new{background:var(--accent-soft);color:var(--accent)}
+.badge.done{background:var(--ok-soft);color:var(--ok)}
+main{padding:22px 32px 80px;min-width:0}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.status{font-size:13px;color:var(--muted)}
+.status.err{color:var(--err)}
+.vol{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.vol input{accent-color:var(--accent);width:110px}
+h1{font-size:26px;margin:4px 0 6px;letter-spacing:-.01em}
+.cat{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.prompt{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:12px 0 8px;white-space:pre-line;box-shadow:var(--shadow)}
+.prompt b{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.final{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--ok-soft);color:var(--ok);border-radius:12px;padding:12px 16px;margin:10px 0;font-weight:600}
+.final a{color:inherit}
+.final button{margin-left:auto;background:none;border:1px solid currentColor;border-radius:8px;padding:3px 10px;font-size:13px}
+.round{margin-top:26px}
+.round-h{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.round-h h2{font-size:18px;margin:0}
+.round-h .when{font-size:12px;color:var(--muted)}
+.note{color:var(--muted);margin:0 0 12px;white-space:pre-line}
+.note b{color:var(--text)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow);min-width:0}
+.card.chosen{border-color:var(--ok);box-shadow:0 0 0 2px var(--ok-soft)}
+.card-h{display:flex;gap:10px;align-items:flex-start}
+.letter{flex:none;width:30px;height:30px;border-radius:9px;background:var(--panel2);display:grid;place-items:center;font-weight:800}
+.card.playing .letter{background:var(--accent);color:#fff}
+.card-h .tt{font-weight:650;line-height:1.3}
+.card-h .dur{font-size:12px;color:var(--muted)}
+.desc{font-size:14px;color:var(--muted);white-space:pre-line;margin:0}
+.player{display:flex;gap:10px;align-items:center}
+.play{flex:none;width:40px;height:40px;border-radius:50%;border:0;background:var(--accent);color:#fff;display:grid;place-items:center}
+.play svg{width:16px;height:16px;fill:currentColor}
+canvas.wave{flex:1;height:52px;width:100%;min-width:0;cursor:pointer;border-radius:6px}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px}
+.chip{background:var(--panel2);border:1px solid transparent;border-radius:8px;padding:3px 9px;color:var(--muted);text-decoration:none;font-size:13px}
+.chip.on{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.stars{display:flex;gap:2px;margin-left:auto}
+.stars button{background:none;border:0;padding:0 1px;font-size:20px;line-height:1;color:var(--wave)}
+.stars button.on{color:var(--star)}
+textarea{width:100%;min-height:62px;resize:vertical;font:inherit;font-size:14px;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+textarea:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.choose{border:1px solid var(--line);background:none;border-radius:10px;padding:7px 10px;font-size:14px;font-weight:600}
+.choose:hover{border-color:var(--ok);color:var(--ok)}
+.card.chosen .choose{background:var(--ok);border-color:var(--ok);color:#fff}
+.general{margin-top:14px}
+.general label{font-size:13px;font-weight:600;display:block;margin-bottom:4px}
+.missing{font-size:13px;color:var(--muted);padding:14px;text-align:center;background:var(--panel2);border-radius:10px}
+details.older{margin-top:26px;border-top:1px solid var(--line);padding-top:10px}
+details.older>summary{cursor:pointer;color:var(--muted);font-weight:600;padding:6px 0}
+.empty{max-width:620px;margin:8vh auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px 30px;box-shadow:var(--shadow)}
+.empty h2{margin-top:0}
+.empty ol{padding-left:20px}
+.empty li{margin:6px 0}
+.hint{font-size:12px;color:var(--muted);margin-top:30px}
+kbd{font:12px ui-monospace,monospace;background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:0 5px}
+@media (max-width:760px){
+  .app{grid-template-columns:1fr}
+  aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+  main{padding:16px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside id="side"></aside>
+  <main>
+    <div class="topbar">
+      <div class="status" id="status">Laden…</div>
+      <label class="vol">Volume <input id="vol" type="range" min="0" max="1" step="0.01" value="0.8"></label>
+    </div>
+    <div id="main"></div>
+  </main>
+</div>
+<script>
+const CAT = {intro:'Intro', outro:'Outro', transitie:'Transitie', achtergrond:'Achtergrond', overig:'Overig'};
+const PLAY = '<svg viewBox="0 0 16 16"><path d="M4 2.5v11l9.5-5.5z"/></svg>';
+const PAUSE = '<svg viewBox="0 0 16 16"><path d="M3.5 2h3v12h-3zM9.5 2h3v12h-3z"/></svg>';
+
+let state = {projects: []}, sig = '', current = decodeURIComponent(location.hash.slice(1)) || null;
+let inflight = 0, pendingRender = false;
+const timers = {};
+const loops = new Set();
+
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDur = d => d == null ? '' : (d >= 60 ? `${Math.floor(d/60)}:${String(Math.round(d%60)).padStart(2,'0')}` : `${d.toFixed(1)}s`);
+const fmtWhen = s => s ? new Date(s).toLocaleString('nl-NL', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'}) : '';
+const proj = () => state.projects.find(p => p.id === current);
+const keyOf = (p, r, o) => `${p}/${r}/${o}`;
+
+function setStatus(text, err) { const s = document.getElementById('status'); s.textContent = text; s.className = 'status' + (err ? ' err' : ''); }
+
+/* ---------------- audio ---------------- */
+let ctx, master;
+function audio() {
+  if (!ctx) {
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain(); master.gain.value = +document.getElementById('vol').value; master.connect(ctx.destination);
+  }
+  return ctx;
+}
+const buffers = new Map(), decoded = new Map(), peaksCache = new Map();
+function getBuffer(url) {
+  if (!buffers.has(url)) {
+    buffers.set(url, fetch(url).then(r => { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+      .then(ab => audio().decodeAudioData(ab)).then(b => { decoded.set(url, b); return b; })
+      .catch(e => { buffers.delete(url); throw e; }));
+  }
+  return buffers.get(url);
+}
+let playing = null, lastKey = null;
+function urlFor(key) { const c = document.querySelector(`canvas[data-key="${CSS.escape(key)}"]`); return c && c.dataset.url; }
+async function play(key, url, offset = 0) {
+  stop(); lastKey = key;
+  const ac = audio(); await ac.resume();
+  const buf = await getBuffer(url);
+  const src = ac.createBufferSource(); src.buffer = buf; src.loop = loops.has(key); src.connect(master);
+  src.start(0, Math.min(offset, buf.duration - 0.01));
+  playing = {key, src, startedAt: ac.currentTime - offset, duration: buf.duration};
+  src.onended = () => { if (playing && playing.src === src) { const k = playing.key; playing = null; updatePlayUI(); drawWave(k); } };
+  updatePlayUI(); tick();
+}
+function stop() {
+  if (!playing) return;
+  const p = playing; playing = null; p.src.onended = null; try { p.src.stop(); } catch {}
+  updatePlayUI(); drawWave(p.key);
+}
+function position() {
+  if (!playing) return 0;
+  let t = ctx.currentTime - playing.startedAt;
+  if (playing.src.loop) t %= playing.duration;
+  return Math.min(t, playing.duration);
+}
+function tick() { if (!playing) return; drawWave(playing.key, position() / playing.duration); requestAnimationFrame(tick); }
+function toggle(key) {
+  const url = urlFor(key); if (!url) return;
+  if (playing && playing.key === key) stop(); else play(key, url);
+}
+function updatePlayUI() {
+  document.querySelectorAll('.card[data-key]').forEach(c => {
+    const on = playing && playing.key === c.dataset.key;
+    c.classList.toggle('playing', !!on);
+    const b = c.querySelector('.play'); if (b) b.innerHTML = on ? PAUSE : PLAY;
+  });
+}
+
+/* ---------------- waveform ---------------- */
+function cssVar(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+function drawWave(key, progress = 0) {
+  const c = document.querySelector(`canvas[data-key="${CSS.escape(key)}"]`); if (!c) return;
+  const buf = decoded.get(c.dataset.url);
+  const dpr = window.devicePixelRatio || 1, w = c.clientWidth, h = c.clientHeight;
+  if (!w) return;
+  if (c.width !== Math.round(w * dpr)) { c.width = Math.round(w * dpr); c.height = Math.round(h * dpr); }
+  const g = c.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
+  const bars = Math.max(20, Math.floor(w / 3));
+  let peaks;
+  if (buf) {
+    const pk = `${c.dataset.url}|${bars}`;
+    peaks = peaksCache.get(pk);
+    if (!peaks) {
+      const chans = [...Array(buf.numberOfChannels)].map((_, i) => buf.getChannelData(i));
+      const step = buf.length / bars; peaks = new Float32Array(bars); let max = 0;
+      for (let i = 0; i < bars; i++) {
+        let m = 0; const a = Math.floor(i * step), b = Math.min(buf.length, Math.floor((i + 1) * step));
+        for (let j = a; j < b; j += 4) for (const ch of chans) { const v = Math.abs(ch[j]); if (v > m) m = v; }
+        peaks[i] = m; if (m > max) max = m;
+      }
+      for (let i = 0; i < bars; i++) peaks[i] /= (max || 1);
+      peaksCache.set(pk, peaks);
+    }
+  }
+  const wave = cssVar('--wave'), acc = cssVar('--accent');
+  for (let i = 0; i < bars; i++) {
+    const v = peaks ? Math.max(0.04, peaks[i]) : 0.06;
+    const bh = v * (h - 4), x = i * (w / bars);
+    g.fillStyle = (i / bars) < progress ? acc : wave;
+    g.fillRect(x, (h - bh) / 2, Math.max(1, w / bars - 1), bh);
+  }
+  if (playing && playing.key === key) { g.fillStyle = acc; g.fillRect(progress * w - 1, 0, 2, h); }
+}
+function drawAll() { document.querySelectorAll('canvas.wave').forEach(c => drawWave(c.dataset.key, playing && playing.key === c.dataset.key ? position() / playing.duration : 0)); }
+
+/* ---------------- data ---------------- */
+function structSig(s) {
+  return JSON.stringify(s.projects.map(p => [p.id, p.title, p.category, p.prompt, p.status, p.final,
+    p.rounds.map(r => [r.name, r.note, r.options.map(o => [o.id, o.title, o.description, o.mtime])])]));
+}
+async function poll(first) {
+  try {
+    const r = await fetch('/api/state', {cache: 'no-store'});
+    const s = await r.json();
+    if (inflight || Object.keys(timers).length) return;  // eigen wijzigingen nog onderweg
+    const nsig = structSig(s); const changed = nsig !== sig;
+    state = s;
+    if (first || changed) {
+      sig = nsig;
+      if (!first && document.activeElement && document.activeElement.tagName === 'TEXTAREA') pendingRender = true;
+      else render();
+      if (!first) setStatus('Nieuwe versie geladen');
+    }
+    if (document.getElementById('status').classList.contains('err') || first) setStatus('Verbonden');
+  } catch (e) { setStatus('Server niet bereikbaar — draait `python studio.py serve`?', true); }
+}
+async function post(url, body) {
+  inflight++; setStatus('Opslaan…');
+  try {
+    const r = await fetch(url, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)});
+    const j = await r.json(); if (!r.ok) throw new Error(j.error || r.status);
+    setStatus('Opgeslagen ✓'); return j;
+  } catch (e) { setStatus('Opslaan mislukt: ' + e.message, true); throw e; }
+  finally { inflight--; }
+}
+function fbOf(p, r) { const round = p.rounds.find(x => x.name === r); round.feedback ||= {}; round.feedback.options ||= {}; return round.feedback; }
+function saveFeedback(pid, rnd, opt, patch, debounce) {
+  const p = state.projects.find(x => x.id === pid), fb = fbOf(p, rnd);
+  if (opt) Object.assign(fb.options[opt] ||= {}, patch); else fb.general = patch.comment;
+  const k = keyOf(pid, rnd, opt || '_');
+  clearTimeout(timers[k]?.t);
+  const run = () => { delete timers[k]; post('/api/feedback', {project: pid, round: rnd, option: opt || null, ...patch}).catch(() => {}); };
+  if (debounce) timers[k] = {t: setTimeout(run, 700), run}; else run();
+  renderSide();
+}
+function flush() { Object.values(timers).forEach(x => { clearTimeout(x.t); x.run(); }); }
+
+/* ---------------- render ---------------- */
+function roundStatus(p) {
+  if (p.status === 'klaar') return ['done', '✓ Klaar'];
+  const r = p.rounds[p.rounds.length - 1];
+  if (!r || !r.options.some(o => o.file)) return ['', 'In de maak'];
+  const fb = r.feedback || {};
+  const has = (fb.general || '').trim() || Object.values(fb.options || {}).some(o => o.rating || (o.comment || '').trim());
+  return has ? ['', 'Feedback gegeven'] : ['new', 'Luister ●'];
+}
+function renderSide() {
+  const side = document.getElementById('side');
+  let h = `<div class="brand"><span class="dot">♪</span>Podcast Studio</div>`;
+  const groups = {};
+  state.projects.forEach(p => (groups[p.category || 'overig'] ||= []).push(p));
+  const order = Object.keys(CAT).filter(c => groups[c]);
+  if (!order.length) h += `<div class="group">Nog geen verzoeken</div>`;
+  for (const c of order) {
+    h += `<div class="group">${CAT[c]}</div>`;
+    for (const p of groups[c]) {
+      const [cls, label] = roundStatus(p);
+      h += `<button class="proj ${p.id === current ? 'active' : ''}" data-proj="${esc(p.id)}">
+        <span class="t">${esc(p.title)}</span>
+        <span class="s">Ronde ${p.rounds.length} <span class="badge ${cls}">${label}</span></span></button>`;
+    }
+  }
+  side.innerHTML = h;
+}
+function renderMain() {
+  const m = document.getElementById('main');
+  const p = proj();
+  if (!p) {
+    m.innerHTML = `<div class="empty"><h2>Welkom in je podcast-studio</h2>
+      <p>Hier verschijnen per verzoek steeds <b>3 opties</b> om te beluisteren en te beoordelen.</p>
+      <ol>
+        <li>Vertel Claude in de chat wat je wilt (bijv. <i>"vrolijke intro van 10 seconden"</i>).</li>
+        <li>Claude maakt 3 varianten; die verschijnen hier vanzelf.</li>
+        <li>Luister, geef sterren en schrijf wat je goed of minder goed vindt. Alles wordt automatisch opgeslagen.</li>
+        <li>Zeg in de chat dat je feedback klaar is; Claude maakt een nieuwe ronde.</li>
+        <li>Zit de juiste ertussen? Klik <b>Kies deze</b>; de WAV komt in de map <code>final/</code>.</li>
+      </ol></div>`;
+    return;
+  }
+  let h = `<div class="cat">${esc(CAT[p.category] || p.category)}</div><h1>${esc(p.title)}</h1>`;
+  if (p.prompt) h += `<div class="prompt"><b>Jouw verzoek</b>${esc(p.prompt)}</div>`;
+  if (p.final) h += `<div class="final">✓ Gekozen: ronde ${esc(p.final.round)}, optie ${esc(p.final.option.toUpperCase())}
+      <a href="/mp3/final/${esc(p.id)}.wav?name=${esc(p.id)}.mp3" download="${esc(p.id)}.mp3">Download MP3</a>
+      <a href="/final/${esc(p.id)}.wav" download>WAV</a>
+      <button data-unfinal>Keuze ongedaan maken</button></div>`;
+  const rounds = [...p.rounds].reverse();
+  rounds.forEach((r, i) => {
+    const block = roundHTML(p, r);
+    if (i === 1) h += `<details class="older"><summary>Eerdere rondes (${rounds.length - 1})</summary>`;
+    h += block;
+  });
+  if (rounds.length > 1) h += `</details>`;
+  if (!rounds.length) h += `<div class="missing">Nog geen rondes.</div>`;
+  h += `<div class="hint">Sneltoetsen: <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> speel optie A/B/C van de nieuwste ronde · <kbd>spatie</kbd> pauze/verder · klik op de waveform om te spoelen.</div>`;
+  m.innerHTML = h;
+  m.querySelectorAll('canvas.wave').forEach(c => getBuffer(c.dataset.url).then(() => drawWave(c.dataset.key)).catch(() => {}));
+  m.querySelectorAll('details.older').forEach(d => d.addEventListener('toggle', drawAll));
+  drawAll(); updatePlayUI();
+}
+function roundHTML(p, r) {
+  const fb = r.feedback || {}, fo = fb.options || {};
+  let h = `<section class="round"><div class="round-h"><h2>Ronde ${parseInt(r.name, 10)}</h2><span class="when">${fmtWhen(r.created)}</span></div>`;
+  if (r.note) h += `<p class="note"><b>Wat is er anders:</b> ${esc(r.note)}</p>`;
+  if (!r.options.length) h += `<div class="missing">Claude is deze ronde nog aan het maken…</div>`;
+  h += `<div class="cards">`;
+  for (const o of r.options) {
+    const key = keyOf(p.id, r.name, o.id), f = fo[o.id] || {}, rating = f.rating || 0;
+    const chosen = p.final && p.final.round === r.name && p.final.option === o.id;
+    const url = o.file ? `/${o.file}?v=${o.mtime}` : '';
+    h += `<div class="card ${chosen ? 'chosen' : ''}" data-key="${esc(key)}">
+      <div class="card-h"><span class="letter">${o.id.toUpperCase()}</span>
+        <div><div class="tt">${esc(o.title)}</div><div class="dur">${fmtDur(o.duration)}</div></div></div>
+      ${o.description ? `<p class="desc">${esc(o.description)}</p>` : ''}
+      ${o.file ? `<div class="player"><button class="play" data-play="${esc(key)}" aria-label="Afspelen">${PLAY}</button>
+        <canvas class="wave" data-key="${esc(key)}" data-url="${esc(url)}"></canvas></div>
+      <div class="tools">
+        <button class="chip ${loops.has(key) ? 'on' : ''}" data-loop="${esc(key)}">⟲ Herhaal</button>
+        <a class="chip" href="/mp3/${esc(o.file)}?name=${esc(p.id)}-ronde${r.name}-${o.id}.mp3&v=${o.mtime}" download="${esc(p.id)}-ronde${r.name}-${o.id}.mp3">Download MP3</a>
+        <span class="stars" data-stars="${esc(key)}">${[1,2,3,4,5].map(n => `<button data-n="${n}" class="${n <= rating ? 'on' : ''}" aria-label="${n} sterren">★</button>`).join('')}</span>
+      </div>` : `<div class="missing">Nog niet gerenderd</div>`}
+      <textarea data-comment="${esc(key)}" placeholder="Wat vind je ervan? Wat moet anders?">${esc(f.comment || '')}</textarea>
+      ${o.file ? `<button class="choose" data-choose="${esc(key)}">${chosen ? '✓ Gekozen' : 'Kies deze als definitief'}</button>` : ''}
+    </div>`;
+  }
+  h += `</div><div class="general"><label>Algemene feedback voor de volgende ronde</label>
+    <textarea data-general="${esc(p.id + '/' + r.name)}" placeholder="Bijv. 'B gaat de goede kant op, maar korter en met meer bas'">${esc(fb.general || '')}</textarea></div></section>`;
+  return h;
+}
+function render() { renderSide(); renderMain(); }
+
+/* ---------------- events ---------------- */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-proj],[data-play],[data-loop],[data-stars] button,[data-choose],[data-unfinal],canvas.wave');
+  if (!t) return;
+  if (t.dataset.proj) { flush(); current = t.dataset.proj; location.hash = encodeURIComponent(current); render(); window.scrollTo(0, 0); return; }
+  if (t.dataset.play) return toggle(t.dataset.play);
+  if (t.dataset.loop) {
+    const k = t.dataset.loop; loops.has(k) ? loops.delete(k) : loops.add(k); t.classList.toggle('on');
+    if (playing && playing.key === k) playing.src.loop = loops.has(k); return;
+  }
+  if (t.matches('canvas.wave')) {
+    const r = t.getBoundingClientRect(), frac = (e.clientX - r.left) / r.width;
+    const buf = decoded.get(t.dataset.url); if (buf) play(t.dataset.key, t.dataset.url, frac * buf.duration); return;
+  }
+  if (t.matches('[data-stars] button')) {
+    const [pid, rnd, opt] = t.parentElement.dataset.stars.split('/');
+    const p = proj(), cur = (fbOf(p, rnd).options[opt] || {}).rating || 0, n = +t.dataset.n;
+    const val = cur === n ? 0 : n;
+    t.parentElement.querySelectorAll('button').forEach(b => b.classList.toggle('on', +b.dataset.n <= val));
+    return saveFeedback(pid, rnd, opt, {rating: val});
+  }
+  if (t.dataset.choose) {
+    const [pid, rnd, opt] = t.dataset.choose.split('/');
+    const p = proj(), already = p.final && p.final.round === rnd && p.final.option === opt;
+    post('/api/final', already ? {project: pid, clear: true} : {project: pid, round: rnd, option: opt})
+      .then(() => poll(true)).catch(() => {});
+    return;
+  }
+  if (t.hasAttribute('data-unfinal')) { post('/api/final', {project: current, clear: true}).then(() => poll(true)).catch(() => {}); }
+});
+document.addEventListener('input', e => {
+  const t = e.target;
+  if (t.dataset.comment) { const [pid, rnd, opt] = t.dataset.comment.split('/'); saveFeedback(pid, rnd, opt, {comment: t.value}, true); }
+  if (t.dataset.general) { const [pid, rnd] = t.dataset.general.split('/'); saveFeedback(pid, rnd, null, {comment: t.value}, true); }
+  if (t.id === 'vol' && master) master.gain.value = +t.value;
+});
+document.addEventListener('focusout', e => {
+  if (e.target.tagName === 'TEXTAREA') { flush(); if (pendingRender) setTimeout(() => { if (document.activeElement.tagName !== 'TEXTAREA') { pendingRender = false; render(); } }, 50); }
+});
+document.addEventListener('keydown', e => {
+  if (/^(TEXTAREA|INPUT)$/.test(e.target.tagName)) return;
+  const p = proj(); if (!p) return;
+  const latest = p.rounds[p.rounds.length - 1];
+  if (/^[1-9]$/.test(e.key) && latest) {
+    const o = latest.options[+e.key - 1]; if (o && o.file) toggle(keyOf(p.id, latest.name, o.id));
+  } else if (e.key === ' ') {
+    e.preventDefault();
+    if (playing) stop(); else if (lastKey) toggle(lastKey);
+  } else if (e.key === 'Escape') stop();
+});
+window.addEventListener('resize', () => { clearTimeout(window.__rs); window.__rs = setTimeout(drawAll, 100); });
+window.addEventListener('hashchange', () => { const h = decodeURIComponent(location.hash.slice(1)); if (h && h !== current) { current = h; render(); } });
+window.addEventListener('beforeunload', flush);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', drawAll);
+
+(async () => {
+  await poll(true);
+  if (!proj() && state.projects.length) {
+    current = [...state.projects].sort((a, b) => String(a.created).localeCompare(String(b.created))).pop().id;
+    render();
+  }
+  setInterval(() => poll(false), 2500);
+})();
+</script>
+</body>
+</html>

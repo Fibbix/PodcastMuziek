@@ -1,0 +1,24 @@
+{
+  "note": "A = ongewijzigd (goedgekeurd), staat er ter vergelijking bij. B en C spelen hetzelfde deuntje als A (108 BPM, zelfde melodie, akkoorden, opening en einde), maar met andere, 'echte' instrumenten: B = akoestische gitaar + contrabas, C = strijkers + piano + glockenspiel.",
+  "created": "2026-11-11T17:18:40",
+  "options": {
+    "a": {
+      "title": "Zelfde deuntje, sneller",
+      "description": "Precies de vorige A (piano + e-piano + zachte hartslag, zelfde einde), alleen het tempo gaat omhoog van 92 naar 108 BPM.\nAkkoorden Am – F – C – G – Am.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:19:17"
+    },
+    "b": {
+      "title": "Akoestisch: gitaar + contrabas",
+      "description": "Hetzelfde deuntje als A (108 BPM), nu akoestisch: een geslagen gitaar speelt de akkoorden ritmisch, een tweede gitaar speelt de melodie, er is een getokkelde contrabas en de zachte kick blijft. Warm, 'singer-songwriter'.\nAkkoorden Am – F – C – G – Am.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:19:57"
+    },
+    "c": {
+      "title": "Klassiek: strijkers + piano",
+      "description": "Hetzelfde deuntje als A (108 BPM), nu met een klein strijkorkest: strijkers spelen de akkoorden met korte accenten op de tel, cello's tokkelen de baslijn (pizzicato) en een zachte pauk-achtige kick blijft. De piano speelt de melodie, met een glockenspiel op de slotnoot. Filmisch en sfeervol.\nAkkoorden Am – F – C – G – Am.",
+      "duration": 10.0,
+      "rendered": "2026-11-11T17:19:27"
+    }
+  }
+}

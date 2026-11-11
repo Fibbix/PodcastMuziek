@@ -1,0 +1,18 @@
+{
+  "general": "Alles moet korter. Max 10 seconden",
+  "options": {
+    "a": {
+      "comment": "Deze is wel leuk, maar hij is wel net iets te somber. Heb liever dat hij ietsjes energieker is, maar echt een klein beetje.",
+      "rating": 4
+    },
+    "b": {
+      "comment": "Oud radio wil ik niet. Moet wel modern blijven, elektrische piano is wel leuk",
+      "rating": 3
+    },
+    "c": {
+      "comment": "Het is niet duidelijk dat de tribune leegloopt in de muziek, en het instrument is helemaal niks",
+      "rating": 2
+    }
+  },
+  "updated": "2026-11-11T16:54:25"
+}
