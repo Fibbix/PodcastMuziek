@@ -1,0 +1,12 @@
+{
+  "title": "Transitie default",
+  "category": "transitie",
+  "prompt": "Standaard-transitie: snel, goede fades, herkenbaar. Zelfde stijl als intro en outro, maar niet te veel op elkaar lijken.",
+  "created": "2026-11-14T15:43:32",
+  "status": "klaar",
+  "final": {
+    "round": "04",
+    "option": "b",
+    "at": "2026-11-14T16:07:47"
+  }
+}

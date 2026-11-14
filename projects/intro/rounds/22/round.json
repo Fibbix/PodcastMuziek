@@ -1,0 +1,24 @@
+{
+  "note": "B uit ronde 21 is gekozen → nu A (ongewijzigd). B en C = A + 5 seconden heel zachte nagloei-laag waar de podcast overheen kan beginnen: B = de groove loopt zachtjes door (e-piano, bas, zachte shaker); C = rustige nagalm zonder ritme (zachte akkoorden). De intro zelf is identiek; de laag zwelt op na het slotakkoord en staat ~13 dB onder de muziek, met het hoog weggefilterd zodat stemmen erbovenuit komen.",
+  "created": "2026-11-14T14:34:47",
+  "options": {
+    "a": {
+      "title": "Fluitsignaal harder",
+      "description": "Gekozen versie (zacht gefloten melodie, 9,2 s), maar het fluitsignaal aan het begin is 5 dB harder, terug op het oorspronkelijke niveau. Zelfde fluitklank en pauzes; de muziek is identiek.",
+      "duration": 9.2,
+      "rendered": "2026-11-14T14:35:16"
+    },
+    "b": {
+      "title": "Met 5 s zachte groove erachter",
+      "description": "De gekozen intro (identiek aan A), met daarna 5 seconden heel zacht doorlopende groove (e-piano, bas, zachte shaker; geen fluit of claps) waar de podcast overheen kan beginnen. Hoog weggefilterd voor ruimte voor stemmen; ~13 dB onder de muziek. Totaal 14,2 s.",
+      "duration": 14.2,
+      "rendered": "2026-11-14T14:35:21"
+    },
+    "c": {
+      "title": "Met 5 s zachte nagalm erachter",
+      "description": "De gekozen intro (identiek aan A), met daarna 5 seconden rustige, zachte nagalm zonder ritme (pad en e-piano-akkoorden, zachte subbas) waar de podcast overheen kan beginnen. Hoog weggefilterd voor ruimte voor stemmen; ~13 dB onder de muziek. Totaal 14,2 s.",
+      "duration": 14.2,
+      "rendered": "2026-11-14T14:35:27"
+    }
+  }
+}

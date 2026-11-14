@@ -1,0 +1,24 @@
+{
+  "note": "A en C ongewijzigd uit ronde 11. B = A (zachtere piano, 100 BPM) met extra pianotoetsen tussendoor: op elke 'en' tussen de melodienoten speelt de piano nu een extra noot (wat zachter), waardoor de melodie in achtsten loopt en vlotter/sneller klinkt. Tempo, opening en einde gelijk aan A.",
+  "created": "2026-11-14T13:47:26",
+  "options": {
+    "a": {
+      "title": "Zachtere piano (100 BPM)",
+      "description": "Zoals A, met de zachtere, rondere piano. 100 BPM (was 108). Fluitsignaal zoals in ronde 9.",
+      "duration": 10.0,
+      "rendered": "2026-11-14T13:47:56"
+    },
+    "b": {
+      "title": "Zachtere piano, met extra toetsen tussendoor",
+      "description": "Zoals A (zachtere piano, 100 BPM, zelfde opening en einde), maar de piano speelt nu op elke 'en' tussen de melodienoten een extra, iets zachtere toets. De melodie loopt daardoor in achtsten en klinkt vlotter.",
+      "duration": 10.0,
+      "rendered": "2026-11-14T13:49:48"
+    },
+    "c": {
+      "title": "Gefloten melodie + e-piano-groove",
+      "description": "Na het fluitsignaal fluit 'een supporter' een vrolijk deuntje, alsof hij na de wedstrijd naar huis loopt. Eronder een swingende e-piano die de akkoorden ritmisch aanslaat, een getokkelde bas, claps op 2 en 4 en een zachte shaker. Luchtig, energiek en menselijk.\nAkkoorden G – Em – C – D – G, 104 BPM.",
+      "duration": 10.0,
+      "rendered": "2026-11-14T13:48:05"
+    }
+  }
+}

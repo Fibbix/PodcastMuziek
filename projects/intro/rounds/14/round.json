@@ -1,0 +1,24 @@
+{
+  "note": "A en B ongewijzigd uit ronde 13. C = B ingekort tot 8 seconden: zelfde tempo (100 BPM), zelfde fluitsignaal en melodie, maar de muziek begint al tijdens de laatste lange fluitstoot (op 2,0 s i.p.v. 2,4 s) en het publiek sterft iets sneller weg; het slotakkoord klinkt ruim 1 seconde uit.",
+  "created": "2026-11-14T13:53:03",
+  "options": {
+    "a": {
+      "title": "Zachtere piano (100 BPM)",
+      "description": "Zoals A, met de zachtere, rondere piano. 100 BPM (was 108). Fluitsignaal zoals in ronde 9.",
+      "duration": 10.0,
+      "rendered": "2026-11-14T13:53:09"
+    },
+    "b": {
+      "title": "Zachtere piano, iets minder extra toetsen",
+      "description": "Zoals A (zachtere piano, 100 BPM, zelfde opening en einde), met één extra, iets zachtere pianotoets per akkoord tussen de melodienoten (4 in totaal, was 6). Vlotter dan A, rustiger dan de vorige B.",
+      "duration": 10.0,
+      "rendered": "2026-11-14T13:53:14"
+    },
+    "c": {
+      "title": "Zoals B, ingekort tot 8 seconden",
+      "description": "Precies B (zachtere piano, 100 BPM, één extra toets per akkoord), maar 8 seconden in plaats van 10. Het fluitsignaal is gelijk; de muziek begint al tijdens de laatste lange fluitstoot en het publiek sterft iets sneller weg. Het slotakkoord klinkt ruim een seconde uit.",
+      "duration": 8.0,
+      "rendered": "2026-11-14T13:53:35"
+    }
+  }
+}

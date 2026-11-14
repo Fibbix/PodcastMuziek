@@ -1,0 +1,24 @@
+{
+  "note": "A en B ongewijzigd. C = vorige C met de fluit nét iets minder zacht: 7 dB zachter dan B (was 8 dB), hoog een fractie minder weggefilterd (2,4 kHz i.p.v. 2,2 kHz), iets meer adem en iets minder galm. De rest identiek.",
+  "created": "2026-11-14T14:18:09",
+  "options": {
+    "a": {
+      "title": "Zachtere piano (100 BPM)",
+      "description": "Zoals A, met de zachtere, rondere piano. 100 BPM (was 108). Fluitsignaal zoals in ronde 9.",
+      "duration": 10.0,
+      "rendered": "2026-11-14T14:18:15"
+    },
+    "b": {
+      "title": "Gefloten melodie, ingekort (9,2 s)",
+      "description": "Precies C (gefloten melodie, e-piano-groove, bas, claps en shaker, 104 BPM), maar 9,2 seconden in plaats van 10. Het fluitsignaal is gelijk; de muziek begint al tijdens de laatste lange fluitstoot en het publiek sterft iets sneller weg. Het slotakkoord fadet net als bij A en C in ruim 2 seconden weg.",
+      "duration": 9.2,
+      "rendered": "2026-11-14T14:18:19"
+    },
+    "c": {
+      "title": "Gefloten melodie, zacht gefloten (9,2 s)",
+      "description": "Precies B (gefloten melodie, e-piano-groove, bas, claps en shaker, 9,2 s), maar de fluit is zachter, zoals we eerder bij de piano deden: 7 dB zachter in de mix, minder fel (hoog weggefilterd), minder adem en meer galm. De fluit ligt daardoor meer ín de muziek dan erbovenop.",
+      "duration": 9.2,
+      "rendered": "2026-11-14T14:18:25"
+    }
+  }
+}

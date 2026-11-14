@@ -43,7 +43,8 @@ sys.dont_write_bytecode = True  # geen __pycache__ in de rondemappen
 ID_RE = re.compile(r'^[a-z0-9][a-z0-9_-]*$')
 ROUND_RE = re.compile(r'^\d{2}$')
 OPT_RE = re.compile(r'^[a-z]$')
-CATEGORIES = ['intro', 'outro', 'transitie', 'achtergrond', 'overig']
+CATEGORIES = ['intro', 'transitie', 'transitie-stad', 'transitie-shirt', 'outro', 'overig']
+# transitie = "Transitie default", transitie-stad = "Op Pad in de Stad", transitie-shirt = "Shirtje Zoeken"
 STATIC_TYPES = {'.wav', '.mp3', '.html', '.css', '.js', '.json', '.png', '.svg', '.ico'}
 MP3_BITRATE = 320
 
@@ -286,7 +287,10 @@ def set_final(d):
         if not OPT_RE.match(opt) or not wav.exists():
             raise ValueError('Optie niet gevonden')
         FINAL.mkdir(exist_ok=True)
-        shutil.copy2(wav, target)
+        shutil.copy(wav, target)  # niet copy2: de nieuwe WAV moet een verse tijd krijgen
+        old_mp3 = target.with_suffix('.mp3')
+        if old_mp3.exists():
+            old_mp3.unlink()      # anders kan een MP3 van een eerder gekozen versie blijven staan
         wav_to_mp3(target)
         meta['final'] = {'round': rdir.name, 'option': opt, 'at': now()}
         meta['status'] = 'klaar'

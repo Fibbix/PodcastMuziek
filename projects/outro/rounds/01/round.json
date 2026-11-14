@@ -1,0 +1,24 @@
+{
+  "note": "Eerste ronde: alle drie gebaseerd op het intro-deuntje (gefloten melodie, e-piano-groove, bas, claps, shaker), zonder publiek. Outro-kenmerk: melodie twee keer, met een vertraging en groot slotakkoord aan het eind. A = puur deuntje met slot (104 BPM); B = aftrapfluit (nieuw begin) + 112 BPM + tweede keer een toon hoger; C = begint zacht en zwelt aan (spiegel van de intro), toon hoger, eindigt met het eindsignaal als boekensteun.",
+  "created": "2026-11-14T15:10:02",
+  "options": {
+    "a": {
+      "title": "Het deuntje, met een duidelijk slot",
+      "description": "Het intro-deuntje (gefloten melodie, e-piano-groove, bas, claps, shaker) in hetzelfde tempo, zonder publiek. De melodie klinkt twee keer; de tweede keer vertraagt het aan het eind naar een groot slotakkoord met een laatste klap, zodat je hoort: dit is het einde. 104 BPM.",
+      "duration": 14.08,
+      "rendered": "2026-11-14T15:10:37"
+    },
+    "b": {
+      "title": "Aftrapfluit: een nieuw begin",
+      "description": "Begint met één lange aftrapfluit (symbool voor een nieuw begin / de toekomst van de club). Daarna het intro-deuntje, iets sneller (112 BPM); de tweede keer gaat alles een toon omhoog (G naar A), wat opgewekt en afsluitend klinkt, met vertraging en groot slotakkoord.",
+      "duration": 14.46,
+      "rendered": "2026-11-14T15:10:38"
+    },
+    "c": {
+      "title": "Spiegel van de intro: zwelt aan, eindsignaal",
+      "description": "Begint zacht, alsof het deuntje al onder de laatste woorden speelde, en zwelt aan: het omgekeerde van de intro-staart. Tweede keer een toon hoger, vertraging en groot slotakkoord, en daarna het eindsignaal (tuut - tuut - tuuut) als boekensteun: de podcast wordt afgefloten. 108 BPM.",
+      "duration": 15.28,
+      "rendered": "2026-11-14T15:10:39"
+    }
+  }
+}

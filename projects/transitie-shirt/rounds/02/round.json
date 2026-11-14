@@ -1,0 +1,24 @@
+{
+  "note": "Ronde 1 viel helemaal af. Rubriek = een verzamelaar van clubspullen bezoeken. Terug naar de stijl van Pad door de Stad A (groove, e-piano-melodie, landing op G), akkoorden G–Em–C–D uit de intro-familie.",
+  "created": "2026-11-14T18:03:37",
+  "options": {
+    "a": {
+      "title": "Bladeren in het album",
+      "description": "Twee keer een bladzijde omslaan (bladeren door de verzameling), dan één maat warme groove zoals bij Pad door de Stad: G – Em – C – D met e-piano, bas, klappen en shaker, en een e-piano-melodie die oploopt naar de landing op G. 104 BPM, ~4,2 s.",
+      "duration": 4.36,
+      "rendered": "2026-11-14T18:04:22"
+    },
+    "b": {
+      "title": "Herinnering aan het stadion",
+      "description": "Een vol stadion klinkt vaag op de achtergrond (zoals in de intro: de herinnering waar de spullen bij horen) en is weg zodra de groove loopt. Zelfde groove G – Em – C – D, andere melodie die omhoog gaat naar G en via A terugkomt. 104 BPM, ~4,2 s.",
+      "duration": 4.36,
+      "rendered": "2026-11-14T18:04:23"
+    },
+    "c": {
+      "title": "Alleen de groove",
+      "description": "Geen geluidseffect, alleen muziek: halve maat aanloop (bas + shaker) met zachte fade-in, dan de groove G – Em – C – D met een ritmische melodie in het syncopische intro-ritme, landing op G met klap. 104 BPM, ~4,5 s.",
+      "duration": 4.41,
+      "rendered": "2026-11-14T18:04:23"
+    }
+  }
+}

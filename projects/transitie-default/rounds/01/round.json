@@ -1,0 +1,24 @@
+{
+  "note": "Eerste ronde: drie korte transities (~2,5-3 s) in de stijl van intro/outro (e-piano, zachte fluit, bas, claps, shaker; G groot, 104 BPM) maar met een eigen motief. A = opwaarts e-piano-loopje C-D-G; B = gefloten handtekening (3 noten omhoog); C = ritmisch tribuneklappen met e-piano-stoten.",
+  "created": "2026-11-14T15:43:32",
+  "options": {
+    "a": {
+      "title": "E-piano-loopje",
+      "description": "Kort opwaarts e-piano-loopje over C – D – G (IV–V–I, klinkt als 'afronden en door'), met bas en een zachte shaker; landt op G met een klap. Zelfde klankkleur als intro/outro, eigen motief. ~2,7 s.",
+      "duration": 2.7,
+      "rendered": "2026-11-14T15:44:11"
+    },
+    "b": {
+      "title": "Gefloten handtekening",
+      "description": "Drie snelle gefloten noten omhoog (B – D – G) die landen op een lange hoge G, met een zacht e-piano-akkoord, bas en een klap op de landing; een shaker zwelt er kort naartoe. De fluit is het herkenbaarste element van de podcast, maar dit motief komt niet uit het intro-deuntje. ~2,6 s.",
+      "duration": 2.64,
+      "rendered": "2026-11-14T15:44:11"
+    },
+    "c": {
+      "title": "Tribuneklappen",
+      "description": "Ritmisch klappen zoals op de tribune (ta-ta-TAM), met e-piano-stoten op hetzelfde ritme (D – D – G) en de bas eronder. Kort, punchy en voetbal, in dezelfde klankkleur als intro/outro. ~2,4 s.",
+      "duration": 2.43,
+      "rendered": "2026-11-14T15:44:11"
+    }
+  }
+}

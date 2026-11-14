@@ -10,6 +10,7 @@ from __future__ import annotations
 import numpy as np
 from scipy import signal
 
+from .ambience import slow_noise
 from .core import (SR, adsr, bandpass, drive, eq, filter_env, freq, haas, highpass, lowpass,
                    noise, ns, osc, pan, ramp, reverb, rng, to_stereo, tvec, vibrato, _end_fade)
 
@@ -250,6 +251,118 @@ def poly(instrument, notes, dur, **kw):
     for p in parts:
         out[:len(p)] += p
     return out / np.sqrt(len(parts))
+
+
+def organ(notes, dur, drawbars=(8, 8, 8, 0, 0, 0, 0, 0, 0), leslie='slow', click=0.3, release=0.08, grit=1.3):
+    """Tonewheel-orgel (Hammond-achtig), stereo. drawbars = 9 registers (16', 5⅓', 8', 4', 2⅔', 2', 1⅗', 1⅓', 1'),
+    elk 0..8. leslie: 'slow' | 'fast' | None (draaiende luidspreker)."""
+    ratios = (0.5, 1.5, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 8.0)
+    total = dur + release
+    t = tvec(total)
+    y = np.zeros(len(t))
+    nl = _notes(notes)
+    for note in nl:
+        f = freq(note)
+        for r, lvl in zip(ratios, drawbars):
+            if lvl and f * r < SR * 0.45:
+                y += (lvl / 8) * np.sin(2 * np.pi * f * r * t + rng().random() * 6.28)
+    y /= np.sqrt(len(nl)) * max(1.0, sum(d > 0 for d in drawbars) ** 0.5)
+    k = ns(0.006)
+    if click:
+        cl = highpass(noise(0.006), 1500) * np.linspace(1, 0, k) * click
+        y[:k] += cl[:k]
+    y *= adsr(total, 0.004, 0.01, 1.0, release)
+    y = drive(y * 0.6, grit)
+    if not leslie:
+        return pan(y, 0)
+    rate = 6.6 if leslie == 'fast' else 0.8
+    n = np.arange(len(y))
+    out = np.empty((len(y), 2))
+    for c, ph in enumerate((0.0, np.pi / 2)):
+        lfo = np.sin(2 * np.pi * rate * n / SR + ph)
+        d = (1.2 + 0.6 * lfo) / 1000 * SR  # doppler
+        out[:, c] = np.interp(n - d, n, y, left=0) * (1 + 0.25 * lfo)
+    return out * 0.8
+
+
+def whistling(events, total=None, vib=0.3, breath=0.05, glide=0.035):
+    """Menselijk gefloten melodie, stereo-klaar mono. events = [(start_sec, noot, duur_sec), ...].
+    Glijdt tussen de noten (zoals echte fluiters), met vibrato en wat adem."""
+    events = sorted(events)
+    total = total or (events[-1][0] + events[-1][2] + 0.3)
+    n = ns(total)
+    f = np.zeros(n)
+    a = np.zeros(n)
+    for start, note, dur in events:
+        s, e = ns(start), min(n, ns(start + dur))
+        f[s:e] = freq(note)
+        L = e - s
+        att, rel = min(ns(0.03), L // 3), min(ns(0.05), L // 3)
+        env = np.ones(L)
+        env[:att] = np.linspace(0, 1, att)
+        if rel:
+            env[-rel:] = np.linspace(1, 0.15, rel)
+        a[s:e] = np.maximum(a[s:e], env * rng().uniform(0.85, 1.0))
+    # gaten opvullen met vorige toonhoogte (zodat er geglijd wordt) en glijden via log-smoothing
+    idx = np.where(f > 0, np.arange(n), 0)
+    np.maximum.accumulate(idx, out=idx)
+    f = f[idx]
+    f[f == 0] = freq(events[0][1])
+    coef = np.exp(-1 / (glide * SR))
+    lf = signal.lfilter([1 - coef], [1, -coef], np.log(f), zi=[np.log(f[0]) * coef])[0]
+    t = np.arange(n) / SR
+    drift = 2 ** ((slow_noise(total, 1.5) - 0.5) * 0.12 / 12)
+    vib_curve = 2 ** (vib * np.sin(2 * np.pi * 5.6 * t) / 12 * np.clip(a, 0, 1))
+    fr = np.exp(lf) * drift * vib_curve
+    a = signal.lfilter([1 - np.exp(-1 / (0.006 * SR))], [1, -np.exp(-1 / (0.006 * SR))], a)
+    y = osc('sine', fr, total) + 0.04 * osc('sine', fr * 2, total)
+    y += breath * filter_env(noise(total), 'bandpass', fr, 6) * 3
+    return _end_fade(y * a * 0.6)
+
+
+def tambourine(decay=0.14, shake=0.0):
+    """Tamboerijn-tik (mono). shake > 0 = korte schudbeweging ervoor."""
+    dur = decay * 1.6 + shake
+    t = tvec(dur)
+    jingles = sum(np.sin(2 * np.pi * rng().uniform(5200, 9800) * t + rng().random() * 6) for _ in range(6)) / 6
+    y = (0.6 * highpass(noise(dur), 6000) + 0.5 * jingles)
+    env = np.exp(-np.maximum(t - shake, 0) * 5 / decay) * np.minimum(t / (shake + 0.002), 1)
+    return _end_fade(y * env * 0.7)
+
+
+def stomp(people=4, spread=0.012):
+    """Groep die op de vloer/tribune stampt (mono)."""
+    out = np.zeros(ns(0.5 + spread * people))
+    for _ in range(people):
+        k = kick(punch=0.15, decay=0.22, tone=rng().uniform(55, 75), click=0.0)
+        thud = lowpass(noise(0.12), 500) * np.exp(-tvec(0.12) / 0.02) * 0.6
+        k[:len(thud)] += thud
+        s = ns(rng().uniform(0, spread * people))
+        out[s:s + len(k)] += k * rng().uniform(0.7, 1.0)
+    return out / np.sqrt(people)
+
+
+def group_clap(people=5, spread=0.01):
+    """Meerdere mensen die tegelijk (net niet helemaal) klappen (mono)."""
+    out = np.zeros(ns(0.4 + spread * people))
+    for _ in range(people):
+        dur = 0.18
+        t = tvec(dur)
+        c = bandpass(noise(dur), rng().uniform(900, 2200), 1.4) * np.exp(-t / rng().uniform(0.008, 0.015))
+        s = ns(rng().uniform(0, spread * people))
+        out[s:s + len(c)] += c * rng().uniform(0.6, 1.0)
+    return _end_fade(out / np.sqrt(people) * 2.0)
+
+
+def humanize(beat, timing=0.012, bpm=None):
+    """Kleine timingvariatie (in beats als bpm gegeven, anders in seconden) zodat het minder 'machinaal' klinkt."""
+    j = rng().normal(0, timing)
+    return beat + (j * bpm / 60 if bpm else j)
+
+
+def vel(spread_db=1.5):
+    """Willekeurige aanslagsterkte-variatie in dB."""
+    return rng().normal(0, spread_db)
 
 
 # ================================================================ drums

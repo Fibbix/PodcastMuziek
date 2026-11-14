@@ -1,0 +1,24 @@
+{
+  "note": "C is gekozen; nu alleen het fluitsignaal aan het begin. A = C ongewijzigd (referentie). B = C met het fluitsignaal 5 dB harder (terug op het oorspronkelijke niveau), zelfde klank. C = C met een herkenbaardere scheidsrechtersfluit (duidelijk 'ratelend' balletje, luchtstootje bij de aanzet, droger/dichterbij) en ook harder. Pauzes en muziek overal identiek.",
+  "created": "2026-11-14T14:28:59",
+  "options": {
+    "a": {
+      "title": "Gefloten melodie, zacht gefloten (9,2 s)",
+      "description": "Precies B (gefloten melodie, e-piano-groove, bas, claps en shaker, 9,2 s), maar de fluit is zachter, zoals we eerder bij de piano deden: 7 dB zachter in de mix, minder fel (hoog weggefilterd), minder adem en meer galm. De fluit ligt daardoor meer ín de muziek dan erbovenop.",
+      "duration": 9.2,
+      "rendered": "2026-11-14T14:29:15"
+    },
+    "b": {
+      "title": "Fluitsignaal harder",
+      "description": "Gekozen versie (zacht gefloten melodie, 9,2 s), maar het fluitsignaal aan het begin is 5 dB harder, terug op het oorspronkelijke niveau. Zelfde fluitklank en pauzes; de muziek is identiek.",
+      "duration": 9.2,
+      "rendered": "2026-11-14T14:29:20"
+    },
+    "c": {
+      "title": "Herkenbaardere scheidsrechtersfluit",
+      "description": "Gekozen versie, maar met een echtere scheidsrechtersfluit: duidelijk ratelend balletje, een luchtstootje bij elke aanzet en minder galm (klinkt dichterbij en scherper). Ook harder. Zelfde pauzes; de muziek is identiek.",
+      "duration": 9.2,
+      "rendered": "2026-11-14T14:29:46"
+    }
+  }
+}

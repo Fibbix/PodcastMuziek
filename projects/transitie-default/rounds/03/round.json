@@ -1,0 +1,24 @@
+{
+  "note": "Vorige B (handtekening met groove) is het beste, maar de fluit is te hard. Alle drie = vorige B, telkens iets zachter: A fluit -3 dB (geheel -1,5 dB), B fluit -6 dB (geheel -3 dB), C fluit -9 dB (geheel -4,5 dB). De fluit wordt ook steeds ronder (minder hoog/adem, iets meer galm); de rest blijft in verhouding gelijk.",
+  "created": "2026-11-14T15:53:47",
+  "options": {
+    "a": {
+      "title": "Fluit iets zachter",
+      "description": "Vorige B (halve maat groove + gefloten handtekening), maar de fluit 3 dB zachter en iets ronder, en het geheel 1,5 dB zachter.",
+      "duration": 3.05,
+      "rendered": "2026-11-14T15:54:29"
+    },
+    "b": {
+      "title": "Fluit zachter",
+      "description": "Vorige B, maar de fluit 6 dB zachter en ronder (minder hoog en adem, iets meer galm), en het geheel 3 dB zachter.",
+      "duration": 3.05,
+      "rendered": "2026-11-14T15:54:30"
+    },
+    "c": {
+      "title": "Fluit veel zachter",
+      "description": "Vorige B, maar de fluit 9 dB zachter en zo rond als in de intro, en het geheel 4,5 dB zachter. De fluit ligt nu echt in de muziek.",
+      "duration": 3.05,
+      "rendered": "2026-11-14T15:54:30"
+    }
+  }
+}

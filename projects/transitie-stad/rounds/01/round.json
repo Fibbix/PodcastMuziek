@@ -1,0 +1,24 @@
+{
+  "note": "Eerste ronde: 3 verschillende richtingen in de familie van intro/outro/default (104 BPM, G groot), met stadsgeluid; B gezongen.",
+  "created": "2026-11-14T17:22:32",
+  "options": {
+    "a": {
+      "title": "Fietsbel en wandelbas",
+      "description": "Stadsgeluid zwelt aan, een fietsbel (tring-tring), dan één maat vrolijke groove: wandelende bas (G–A–B–D), e-piano in het intro-ritme, klappen en shaker, met een e-piano-loopje omhoog naar de landing op G. Eindigt met een zacht belletje. Werkt als begin én eind van de reportage. 104 BPM, G groot, ~4,2 s.",
+      "duration": 4.26,
+      "rendered": "2026-11-14T17:33:32"
+    },
+    "b": {
+      "title": "Gezongen: Pad door de Stad",
+      "description": "'Pad – door de – Stad!' gezongen (B – D – D → hoge G), met een opstap op D en de landing op G met klap; zacht stadsgeluid en een belletje als staartje. De stem is de Nederlandse Windows-stem (Frank), door de engine op de noten gezet en verdubbeld tot een klein koortje: verstaanbaar maar wat robotachtig/autotune. Met een eigen opname van het team wordt dit veel echter. 104 BPM, G groot, ~3,7 s.",
+      "duration": 3.73,
+      "rendered": "2026-11-14T17:33:40"
+    },
+    "c": {
+      "title": "Wandelen door de stad",
+      "description": "Voetstappen op straat die van links naar rechts langs lopen, stadsgeluid met stemmen, en een relaxte shuffle-groove: wandelende bas, e-piano op de 'en', vingerknippen op 2 en 4 en een kort e-piano-melodietje dat landt op G. Rustiger en 'slenteriger' dan A. 104 BPM, G groot, ~4,3 s.",
+      "duration": 4.36,
+      "rendered": "2026-11-14T17:33:41"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Transitie Shirtje Zoeken",
+  "category": "transitie-shirt",
+  "prompt": "Transitie voor de rubriek 'Shirtje Zoeken' (aanname: op zoek naar een oud shirt van de club), bruikbaar als begin en eind van de rubriek.",
+  "created": "2026-11-14T17:59:29",
+  "status": "klaar",
+  "final": {
+    "round": "03",
+    "option": "c",
+    "at": "2026-11-14T18:24:03"
+  }
+}

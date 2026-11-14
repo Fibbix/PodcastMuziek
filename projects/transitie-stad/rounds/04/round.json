@@ -1,0 +1,24 @@
+{
+  "note": "C (fietser rijdt voorbij) als basis; fietsbel los van de uitfade van de muziek (erna, of tijdens de landing met latere uitfade).",
+  "created": "2026-11-14T17:47:05",
+  "options": {
+    "a": {
+      "title": "Fietsbel ná de muziek",
+      "description": "Vorige C, maar de fietsbel komt pas als de muziek helemaal is uitgefaded: eerst landt de muziek en sterft uit, dan rijdt de fietser voorbij (tring-tring) en klinkt helemaal vrij uit.",
+      "duration": 6.62,
+      "rendered": "2026-11-14T17:47:39"
+    },
+    "b": {
+      "title": "Fietsbel op de landing (later)",
+      "description": "Vorige C, maar de fietsbel klinkt nog tijdens de landing op vol volume (tel 4½); de muziek blijft vol staan tot de bel klaar is en fadet pas daarna uit. De bel klinkt vrij uit.",
+      "duration": 5.56,
+      "rendered": "2026-11-14T17:47:50"
+    },
+    "c": {
+      "title": "Fietsbel op de landing (direct)",
+      "description": "Vorige C, maar de fietsbel klinkt direct na de slotklap (tel 4¼), op vol volume; de muziek fadet pas uit als de bel klaar is. De bel klinkt vrij uit.",
+      "duration": 5.41,
+      "rendered": "2026-11-14T17:48:00"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "note": "B (gefloten handtekening) is de referentie. A = 4 gefloten noten (G-B-D-hoge G) met akkoordwissel D->G eronder (sterker 'aankomen'), fluit iets zachter/ronder zoals in de intro; B = eerst een halve maat groove (e-piano, bas, shaker, klap) en dan de gefloten handtekening (mini-intro); C = kort en snel: 2 gefloten noten (D -> hoge G), landing met e-piano, bas en klap, geen aanloop.",
+  "created": "2026-11-14T15:52:21",
+  "options": {
+    "a": {
+      "title": "Handtekening met akkoordwissel",
+      "description": "Zoals de vorige B, maar met vier gefloten noten (G – B – D → lange hoge G) en een akkoordwissel D → G eronder (e-piano en bas), zodat het sterker 'aankomt'. De fluit klinkt iets zachter en ronder, meer zoals in de intro. Shaker zwelt aan, klap op de landing. ~2,8 s.",
+      "duration": 2.78,
+      "rendered": "2026-11-14T15:52:26"
+    },
+    "b": {
+      "title": "Handtekening met groove",
+      "description": "Eerst een halve maat groove zoals in de intro (syncopisch e-piano-ritme op C, bas, shaker, klap), dan de gefloten handtekening (B – D → lange hoge G) die landt op G met e-piano, bas en klap. Voelt als een mini-intro. ~3,0 s.",
+      "duration": 3.05,
+      "rendered": "2026-11-14T15:52:26"
+    },
+    "c": {
+      "title": "Korte handtekening",
+      "description": "Uitgekleed tot de kern: twee gefloten noten (D → hoge G) die meteen landen op een e-piano-akkoord met bas en klap. Geen aanloop, kortere uitklank: het snelste en strakste van de drie. ~1,9 s.",
+      "duration": 1.87,
+      "rendered": "2026-11-14T15:52:26"
+    }
+  }
+}

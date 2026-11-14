@@ -1,0 +1,24 @@
+{
+  "note": "A = vorige B (zachtere piano, 100 BPM), ongewijzigd. B en C = twee compleet nieuwe intro's met dezelfde opening (publiek + 3 fluitstoten), maar andere instrumenten en een nieuw deuntje, energieker: B = stadionorgel + stampen/handclaps + tamboerijn + bas (112 BPM, C groot); C = gefloten melodie + e-piano-groove + bas + claps/shaker (104 BPM, G groot). Alles met lichte timing-/aanslagvariatie zodat het minder machinaal klinkt.",
+  "created": "2026-11-14T13:41:47",
+  "options": {
+    "a": {
+      "title": "Zachtere piano (100 BPM)",
+      "description": "Zoals A, met de zachtere, rondere piano. 100 BPM (was 108). Fluitsignaal zoals in ronde 9.",
+      "duration": 10.0,
+      "rendered": "2026-11-14T13:43:11"
+    },
+    "b": {
+      "title": "Stadionorgel + handclaps",
+      "description": "Na het fluitsignaal vallen stampende voeten en handclaps in, zoals op een tribune. Een stadionorgel (Hammond-achtig, met draaiende luidspreker) speelt een opgewekte, pakkende melodie, met tamboerijn en een getokkelde bas eronder. Energiek en nostalgisch voetbal.\nAkkoorden C – Am – F – G – C, 112 BPM.",
+      "duration": 10.0,
+      "rendered": "2026-11-14T13:43:16"
+    },
+    "c": {
+      "title": "Gefloten melodie + e-piano-groove",
+      "description": "Na het fluitsignaal fluit 'een supporter' een vrolijk deuntje, alsof hij na de wedstrijd naar huis loopt. Eronder een swingende e-piano die de akkoorden ritmisch aanslaat, een getokkelde bas, claps op 2 en 4 en een zachte shaker. Luchtig, energiek en menselijk.\nAkkoorden G – Em – C – D – G, 104 BPM.",
+      "duration": 10.0,
+      "rendered": "2026-11-14T13:43:21"
+    }
+  }
+}

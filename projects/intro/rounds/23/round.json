@@ -1,0 +1,24 @@
+{
+  "note": "A en C ongewijzigd uit ronde 22. B opnieuw: nu speelt het deuntje zelf gewoon door voor ~5 seconden, heel zacht: de gefloten melodie met e-piano-groove, bas, claps en shaker begint opnieuw (na één maat aanloop), op hetzelfde lage niveau als C. Opbouw zoals C: de intro fadet normaal uit, de herhaling komt eronder op en loopt aan het eind rustig weg.",
+  "created": "2026-11-14T14:42:47",
+  "options": {
+    "a": {
+      "title": "Fluitsignaal harder",
+      "description": "Gekozen versie (zacht gefloten melodie, 9,2 s), maar het fluitsignaal aan het begin is 5 dB harder, terug op het oorspronkelijke niveau. Zelfde fluitklank en pauzes; de muziek is identiek.",
+      "duration": 9.2,
+      "rendered": "2026-11-14T14:42:53"
+    },
+    "b": {
+      "title": "Met 5 s zacht doorspelend deuntje",
+      "description": "De gekozen intro (identiek aan A), en daarna speelt het deuntje gewoon zachtjes door: na één maat aanloop begint de gefloten melodie opnieuw, met de e-piano-groove, bas, claps en shaker, heel zacht (~13 dB onder de muziek, hoog iets weggefilterd) zodat de podcast eroverheen kan beginnen. Loopt aan het eind rustig weg. Totaal 14,2 s.",
+      "duration": 14.2,
+      "rendered": "2026-11-14T14:42:58"
+    },
+    "c": {
+      "title": "Met 5 s zachte nagalm erachter",
+      "description": "De gekozen intro (identiek aan A), met daarna 5 seconden rustige, zachte nagalm zonder ritme (pad en e-piano-akkoorden, zachte subbas) waar de podcast overheen kan beginnen. Hoog weggefilterd voor ruimte voor stemmen; ~13 dB onder de muziek. Totaal 14,2 s.",
+      "duration": 14.2,
+      "rendered": "2026-11-14T14:43:03"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "note": "C behouden (ronde-2-C, seed vast). A en B compleet nieuw.",
+  "created": "2026-11-14T18:11:11",
+  "options": {
+    "a": {
+      "title": "Zachte piano in tertsen",
+      "description": "Warmer en wat rustiger (96 BPM): de zachte piano uit de intro speelt een melodie in tertsen (twee stemmen) over C – D – Em – D, met lang aangehouden e-piano-akkoorden, bas, een zachte hartslag-kick en shaker. Landt op G met klap. Nostalgisch maar opgewekt, zoals bladeren door oude spullen. ~4,7 s.",
+      "duration": 4.65,
+      "rendered": "2026-11-14T18:12:13"
+    },
+    "b": {
+      "title": "Zacht gefloten, Em – C – G – D",
+      "description": "Iets vlotter (108 BPM) met een andere akkoordenreeks: Em – C – G – D, die begint met een vleugje weemoed en opklaart naar de landing op G. Zacht, rond gefloten melodie (zoals in de intro), e-piano in syncopisch ritme, bas, klappen en tamboerijn op de 'en'. ~4,3 s.",
+      "duration": 4.32,
+      "rendered": "2026-11-14T18:12:14"
+    },
+    "c": {
+      "title": "Alleen de groove",
+      "description": "Geen geluidseffect, alleen muziek: halve maat aanloop (bas + shaker) met zachte fade-in, dan de groove G – Em – C – D met een ritmische melodie in het syncopische intro-ritme, landing op G met klap. 104 BPM, ~4,5 s.",
+      "duration": 4.41,
+      "rendered": "2026-11-14T18:11:45"
+    }
+  }
+}

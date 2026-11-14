@@ -1,0 +1,24 @@
+{
+  "note": "A en C ongewijzigd. B = gefloten versie, nu 9,2 s (was 8,0 s), zodat het slotakkoord net als bij A en C ongeveer 2 seconden de tijd krijgt om weg te faden (gemeten: B 2,0 s, A en C 2,2 s). Zelfde fade als C. Alles vóór het einde identiek aan de vorige B.",
+  "created": "2026-11-14T13:59:21",
+  "options": {
+    "a": {
+      "title": "Zachtere piano (100 BPM)",
+      "description": "Zoals A, met de zachtere, rondere piano. 100 BPM (was 108). Fluitsignaal zoals in ronde 9.",
+      "duration": 10.0,
+      "rendered": "2026-11-14T13:59:27"
+    },
+    "b": {
+      "title": "Gefloten melodie, ingekort (9,2 s)",
+      "description": "Precies C (gefloten melodie, e-piano-groove, bas, claps en shaker, 104 BPM), maar 9,2 seconden in plaats van 10. Het fluitsignaal is gelijk; de muziek begint al tijdens de laatste lange fluitstoot en het publiek sterft iets sneller weg. Het slotakkoord fadet net als bij A en C in ruim 2 seconden weg.",
+      "duration": 9.2,
+      "rendered": "2026-11-14T13:59:55"
+    },
+    "c": {
+      "title": "Gefloten melodie + e-piano-groove",
+      "description": "Na het fluitsignaal fluit 'een supporter' een vrolijk deuntje, alsof hij na de wedstrijd naar huis loopt. Eronder een swingende e-piano die de akkoorden ritmisch aanslaat, een getokkelde bas, claps op 2 en 4 en een zachte shaker. Luchtig, energiek en menselijk.\nAkkoorden G – Em – C – D – G, 104 BPM.",
+      "duration": 10.0,
+      "rendered": "2026-11-14T13:59:36"
+    }
+  }
+}

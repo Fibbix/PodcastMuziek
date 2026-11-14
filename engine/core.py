@@ -480,14 +480,16 @@ def loopify(x, loop_dur):
 
 
 # ---------------------------------------------------------------- mastering
-def fade(x, fade_in=0.0, fade_out=0.0):
+def fade(x, fade_in=0.0, fade_out=0.0, out_curve='cos2'):
+    """Fades. out_curve: 'cos2' (standaard) of 'cos' (zachter: blijft langer hoorbaar, zakt pas aan het eind)."""
     x = np.array(x, dtype=float)
     ki, ko = min(ns(fade_in), len(x)), min(ns(fade_out), len(x))
     shape = (-1,) + (1,) * (x.ndim - 1)
     if ki:
         x[:ki] *= np.sin(np.linspace(0, np.pi / 2, ki)).reshape(shape) ** 2
     if ko:
-        x[-ko:] *= np.cos(np.linspace(0, np.pi / 2, ko)).reshape(shape) ** 2
+        c = np.cos(np.linspace(0, np.pi / 2, ko)).reshape(shape)
+        x[-ko:] *= c if out_curve == 'cos' else c ** 2
     return x
 
 

@@ -1,0 +1,24 @@
+{
+  "note": "A (fietsbel + wandelbas) als basis; 3 nieuwe e-piano-melodieën die harmonisch kloppen. Bas op tel 2 C i.p.v. B (botste met het C-akkoord).",
+  "created": "2026-11-14T17:37:11",
+  "options": {
+    "a": {
+      "title": "Melodie 1: vraag en antwoord",
+      "description": "Zelfde als vorige A (stad, fietsbel, groove, belletje), nieuwe e-piano-melodie: D – B – D, dan omhoog E – G en via E – F# naar de landing op hoge G. Helder en opwaarts.",
+      "duration": 4.26,
+      "rendered": "2026-11-14T17:37:40"
+    },
+    "b": {
+      "title": "Melodie 2: omhoog en terug",
+      "description": "Zelfde als vorige A, nieuwe melodie die in stapjes omhoog wandelt (B – C – D – G) en daarna rustig terugloopt (E – D – C – A) naar een lage G. Meer 'wandelend', zachter einde.",
+      "duration": 4.26,
+      "rendered": "2026-11-14T17:37:47"
+    },
+    "c": {
+      "title": "Melodie 3: knipoog naar de intro",
+      "description": "Zelfde als vorige A, melodie die aan het intro-deuntje doet denken (D – B – D – E, C – E – G, F# → G), zodat de rubriek bij de rest van de podcast hoort.",
+      "duration": 4.26,
+      "rendered": "2026-11-14T17:37:54"
+    }
+  }
+}

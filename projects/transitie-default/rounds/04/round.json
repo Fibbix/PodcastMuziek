@@ -1,0 +1,24 @@
+{
+  "note": "Vorige C is het beste; nu ook mooi infaden. Alle drie = vorige C (identiek), met een vloeiende fade-in: A 0,4 s, B 0,7 s, C 1,0 s. De landing op de lange fluitnoot (1,2 s) blijft op vol volume; de uitfade is ongewijzigd.",
+  "created": "2026-11-14T16:05:10",
+  "options": {
+    "a": {
+      "title": "Fade-in kort (0,4 s)",
+      "description": "Vorige C (zachte fluit, halve maat groove + gefloten handtekening), nu met een vloeiende fade-in van 0,4 s. De landing op de lange fluitnoot blijft op vol volume; de uitfade is ongewijzigd.",
+      "duration": 3.05,
+      "rendered": "2026-11-14T16:05:12"
+    },
+    "b": {
+      "title": "Fade-in middel (0,7 s)",
+      "description": "Vorige C (zachte fluit, halve maat groove + gefloten handtekening), nu met een vloeiende fade-in van 0,7 s. De landing op de lange fluitnoot blijft op vol volume; de uitfade is ongewijzigd.",
+      "duration": 3.05,
+      "rendered": "2026-11-14T16:05:12"
+    },
+    "c": {
+      "title": "Fade-in lang (1,0 s)",
+      "description": "Vorige C (zachte fluit, halve maat groove + gefloten handtekening), nu met een vloeiende fade-in van 1,0 s. De landing op de lange fluitnoot blijft op vol volume; de uitfade is ongewijzigd.",
+      "duration": 3.05,
+      "rendered": "2026-11-14T16:05:12"
+    }
+  }
+}

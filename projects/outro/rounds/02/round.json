@@ -1,0 +1,24 @@
+{
+  "note": "C kwam het dichtst bij. Nu het spiegelbeeld van de intro: eerst het deuntje heel heel zacht (gedempt, langzaam aanzwellend tot het niveau van de intro-staart), dan in ~1,4 s over naar normaal (voller en helderder), slotakkoord met klap, en afgefloten met dezelfde fluit als in de intro. A = puur spiegelbeeld (104 BPM, zelfde toonsoort); B = met de toonsoortwissel + 108 BPM van vorige C; C = zoals A met een langer zacht deel (deuntje 2x zacht).",
+  "created": "2026-11-14T15:16:12",
+  "options": {
+    "a": {
+      "title": "Spiegelbeeld van de intro",
+      "description": "Het omgekeerde van de intro: het deuntje begint heel heel zacht en gedempt en zwelt langzaam aan tot het niveau van de intro-staart, gaat dan in anderhalve seconde over naar normaal, eindigt met vertraging, slotakkoord en klap, en wordt afgefloten met dezelfde fluit als in de intro. 104 BPM, zelfde toonsoort als de intro.",
+      "duration": 15.68,
+      "rendered": "2026-11-14T15:16:15"
+    },
+    "b": {
+      "title": "Spiegelbeeld, normale deel een toon hoger",
+      "description": "Zoals A (eerst heel zacht, dan normaal, slotakkoord met klap, afgefloten), maar met wat je goed vond aan de vorige C: 108 BPM en het normale deel een toon hoger, wat extra opgewekt klinkt.",
+      "duration": 15.28,
+      "rendered": "2026-11-14T15:16:16"
+    },
+    "c": {
+      "title": "Spiegelbeeld met langer zacht deel",
+      "description": "Zoals A, maar het zachte begin duurt langer: het deuntje klinkt eerst twee keer heel zacht (handig als er langer overheen gepraat wordt), dan over naar normaal, slotakkoord met klap en afgefloten.",
+      "duration": 20.3,
+      "rendered": "2026-11-14T15:16:17"
+    }
+  }
+}

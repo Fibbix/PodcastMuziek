@@ -104,7 +104,15 @@ kbd{font:12px ui-monospace,monospace;background:var(--panel2);border:1px solid v
   </main>
 </div>
 <script>
-const CAT = {intro:'Intro', outro:'Outro', transitie:'Transitie', achtergrond:'Achtergrond', overig:'Overig'};
+const CAT = {
+  'intro': 'Intro',
+  'transitie': 'Transitie default',
+  'transitie-stad': 'Transitie Op Pad in de Stad',
+  'transitie-shirt': 'Transitie Shirtje Zoeken',
+  'outro': 'Outro',
+  'overig': 'Overig',
+};
+const catOf = p => CAT[p.category] ? p.category : 'overig';
 const PLAY = '<svg viewBox="0 0 16 16"><path d="M4 2.5v11l9.5-5.5z"/></svg>';
 const PAUSE = '<svg viewBox="0 0 16 16"><path d="M3.5 2h3v12h-3zM9.5 2h3v12h-3z"/></svg>';
 
@@ -267,11 +275,14 @@ function renderSide() {
   const side = document.getElementById('side');
   let h = `<div class="brand"><span class="dot">♪</span>Podcast Studio</div>`;
   const groups = {};
-  state.projects.forEach(p => (groups[p.category || 'overig'] ||= []).push(p));
-  const order = Object.keys(CAT).filter(c => groups[c]);
-  if (!order.length) h += `<div class="group">Nog geen verzoeken</div>`;
+  state.projects.forEach(p => (groups[catOf(p)] ||= []).push(p));
+  const order = Object.keys(CAT).filter(c => c !== 'overig' || groups[c]);
   for (const c of order) {
     h += `<div class="group">${CAT[c]}</div>`;
+    if (!groups[c]) {
+      h += `<button class="proj ${current === 'cat:' + c ? 'active' : ''}" data-proj="cat:${c}"><span class="s">Nog leeg</span></button>`;
+      continue;
+    }
     for (const p of groups[c]) {
       const [cls, label] = roundStatus(p);
       h += `<button class="proj ${p.id === current ? 'active' : ''}" data-proj="${esc(p.id)}">
@@ -284,6 +295,12 @@ function renderSide() {
 function renderMain() {
   const m = document.getElementById('main');
   const p = proj();
+  if (!p && current && current.startsWith('cat:') && CAT[current.slice(4)]) {
+    m.innerHTML = `<div class="cat">${esc(CAT[current.slice(4)])}</div><h1>Nog geen jingles</h1>
+      <div class="empty" style="margin:20px 0"><p>Voor <b>${esc(CAT[current.slice(4)])}</b> is nog niets gemaakt.</p>
+      <p>Vertel Claude in de chat wat je wilt; de eerste 3 opties verschijnen hier dan vanzelf.</p></div>`;
+    return;
+  }
   if (!p) {
     m.innerHTML = `<div class="empty"><h2>Welkom in je podcast-studio</h2>
       <p>Hier verschijnen per verzoek steeds <b>3 opties</b> om te beluisteren en te beoordelen.</p>
@@ -296,7 +313,7 @@ function renderMain() {
       </ol></div>`;
     return;
   }
-  let h = `<div class="cat">${esc(CAT[p.category] || p.category)}</div><h1>${esc(p.title)}</h1>`;
+  let h = `<div class="cat">${esc(CAT[catOf(p)])}</div><h1>${esc(p.title)}</h1>`;
   if (p.prompt) h += `<div class="prompt"><b>Jouw verzoek</b>${esc(p.prompt)}</div>`;
   if (p.final) h += `<div class="final">✓ Gekozen: ronde ${esc(p.final.round)}, optie ${esc(p.final.option.toUpperCase())}
       <a href="/mp3/final/${esc(p.id)}.wav?name=${esc(p.id)}.mp3" download="${esc(p.id)}.mp3">Download MP3</a>
@@ -404,7 +421,7 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', drawAll);
 
 (async () => {
   await poll(true);
-  if (!proj() && state.projects.length) {
+  if (!proj() && !(current || '').startsWith('cat:') && state.projects.length) {
     current = [...state.projects].sort((a, b) => String(a.created).localeCompare(String(b.created))).pop().id;
     render();
   }

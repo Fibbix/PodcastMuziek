@@ -1,0 +1,24 @@
+{
+  "note": "B (omhoog en terug) als basis; slotbelletje vervangen door een echte fietsbel (3 varianten), rest identiek.",
+  "created": "2026-11-14T17:40:50",
+  "options": {
+    "a": {
+      "title": "Fietsbel: één tring",
+      "description": "Vorige B ongewijzigd, maar aan het eind een korte fietsbel (één 'tring') in plaats van het belletje.",
+      "duration": 4.82,
+      "rendered": "2026-11-14T17:41:32"
+    },
+    "b": {
+      "title": "Fietsbel: tring-tring",
+      "description": "Vorige B ongewijzigd, aan het eind een fietsbel tring-tring zoals aan het begin, iets zachter.",
+      "duration": 5.0,
+      "rendered": "2026-11-14T17:41:43"
+    },
+    "c": {
+      "title": "Fietsbel: fietser rijdt voorbij",
+      "description": "Vorige B ongewijzigd, aan het eind een tring-tring wat verder weg (zachter, doffer, meer galm), alsof er een fietser voorbijrijdt.",
+      "duration": 5.0,
+      "rendered": "2026-11-14T17:41:54"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "note": "A ongewijzigd. B = vorige B, maar het tweede muziekdeel fadet nu al vanaf het begin geleidelijk weg: start op hetzelfde zachte niveau, zakt gelijkmatig (in dB) tot ~19 dB zachter bij het slotakkoord, zodat het einde bijna niet meer te horen is, en eindigt in stilte. C = vorige B ter vergelijking.",
+  "created": "2026-11-14T14:51:08",
+  "options": {
+    "a": {
+      "title": "Fluitsignaal harder",
+      "description": "Gekozen versie (zacht gefloten melodie, 9,2 s), maar het fluitsignaal aan het begin is 5 dB harder, terug op het oorspronkelijke niveau. Zelfde fluitklank en pauzes; de muziek is identiek.",
+      "duration": 9.2,
+      "rendered": "2026-11-14T14:51:33"
+    },
+    "b": {
+      "title": "Hele deuntje erachter, fadet geleidelijk weg",
+      "description": "De gekozen intro (identiek aan A), en daarna speelt het hele muziekdeel (van net na het fluitsignaal tot en met het slotakkoord) zachtjes nog een keer helemaal door: gefloten melodie, e-piano, bas, claps en shaker, ~13 dB onder de muziek. Dat tweede deel fadet vanaf het begin geleidelijk weg, zodat het slotakkoord al bijna niet meer te horen is. Totaal ~16,3 s.",
+      "duration": 16.34,
+      "rendered": "2026-11-14T14:51:39"
+    },
+    "c": {
+      "title": "Met het hele deuntje zacht erachter",
+      "description": "De gekozen intro (identiek aan A), en daarna speelt het hele muziekdeel (van net na het fluitsignaal tot en met het slotakkoord) zachtjes nog een keer helemaal door: gefloten melodie, e-piano, bas, claps en shaker, ~13 dB onder de muziek. Het slotakkoord klinkt na en fadet netjes weg. Totaal ~16,3 s.",
+      "duration": 16.34,
+      "rendered": "2026-11-14T14:51:45"
+    }
+  }
+}
