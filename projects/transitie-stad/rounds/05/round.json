@@ -1,0 +1,24 @@
+{
+  "note": "A = ronde-4-B (behouden). B/C: fietsbel vervangen door een zachte autotoeter.",
+  "created": "2026-11-17T11:12:58",
+  "options": {
+    "a": {
+      "title": "Fietsbel op de landing (later)",
+      "description": "Vorige C, maar de fietsbel klinkt nog tijdens de landing op vol volume (tel 4½); de muziek blijft vol staan tot de bel klaar is en fadet pas daarna uit. De bel klinkt vrij uit.",
+      "duration": 5.56,
+      "rendered": "2026-11-17T11:14:21"
+    },
+    "b": {
+      "title": "Zachte toeter op de landing",
+      "description": "Als A, maar de fietsbel aan het eind is vervangen door een zachte, ronde autotoeter in de verte (toet-toet, gestemd op G–B) op dezelfde plek tijdens de landing. Het belletje aan het begin blijft.",
+      "duration": 5.56,
+      "rendered": "2026-11-17T11:19:41"
+    },
+    "c": {
+      "title": "Toeter i.p.v. alle fietsbellen",
+      "description": "Als A, maar de fietsbel aan het begin én het eind is vervangen door een zachte autotoeter: aan het begin één korte toet in de verte, op de landing toet-toet (gestemd op G–B). Geen fietsbel meer.",
+      "duration": 5.56,
+      "rendered": "2026-11-17T11:20:02"
+    }
+  }
+}

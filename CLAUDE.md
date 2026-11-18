@@ -30,7 +30,7 @@ De gebruiker communiceert in het Nederlands; UI-teksten en optiebeschrijvingen o
 |---|---|---|
 | `intro` | ✅ **DEFINITIEF: ronde 25 B** → `final/intro.wav` + `.mp3` (16,3 s: intro 9,2 s + zacht doorspelend deuntje dat geleidelijk wegfadet) | `projects/intro/rounds/25/b.py` |
 | `transitie-default` (`--category transitie`) | ✅ **DEFINITIEF: ronde 4 B** → `final/transitie-default.wav` + `.mp3` (3,05 s, fade-in 0,7 s) | `projects/transitie-default/rounds/04/b.py` |
-| `transitie-stad` "Pad door de Stad" (`--category transitie-stad`) | ✅ **DEFINITIEF: ronde 4 B** → `final/transitie-stad.wav` + `.mp3` (5,6 s) | `projects/transitie-stad/rounds/04/b.py` — zie §3d |
+| `transitie-stad` "Pad door de Stad" (`--category transitie-stad`) | Ronde 9 (fietsbel → autotoeter, toets lopen langer uit), wacht op feedback. Huidige definitief: ronde 4 B → `final/transitie-stad.wav` + `.mp3` (5,6 s) | `projects/transitie-stad/rounds/09/` — zie §3d |
 | `transitie-shirt` Shirtje Zoeken (`--category transitie-shirt`) | Ronde 3 | `projects/transitie-shirt/rounds/03/` — zie §3e; rubriek = **een verzamelaar van clubspullen** vinden/bezoeken (niet per se shirts) |
 | `outro` (`--category outro`) | ✅ **DEFINITIEF: ronde 2 C** → `final/outro.wav` + `.mp3` (20,3 s: 2× zacht, dan normaal, slotakkoord + klap, afgefloten) | `projects/outro/rounds/02/c.py` |
 
@@ -121,7 +121,12 @@ plus stadsgeluid (`city`, ~15 dB onder de muziek), fade-in ~0,5 s en uitfade 1 s
 | 1 | A fietsbel tring-tring + 1 maat groove (wandelbas G–A–B–D, e-piano intro-ritme, klappen) + e-piano-loopje naar G, belletje als staart (4,3 s); B **gezongen** "Pad – door de – Stad" (B2 – D3 D3 – G3; Windows-TTS-stem Frank via `engine/voice.py` op de noten gezet, 3 stemmen) op D → G – C – G, zang 3–5 dB boven de band (3,7 s); C voetstappen L→R + stad met stemmen + shuffle-groove met vingerknippen en e-piano-melodietje (4,4 s). Niveau ≈ default (RMS −21) | **A het beste, maar de melodie klopt niet helemaal** → 3 nieuwe melodieën in de stijl van A |
 | 2 | Alle = ronde-1-A (`seed(1000+ord("a"))`, rng-state bewaard rond de melodie → stad/fietsbel/groove gelijk; opening ≤0,7 dB verschil door normalisatie). Akkoorden G–G–G–C–C–D → G; bas tel 2 B→C (botste met C-akkoord): G–B–C–D. Volledige e-piano-melodie (`MELODY`, nootduur = 90 % tot volgende noot), elke noot past bij het akkoord. A D–B–D \| E–G \| E–F# → G5; B B–C–D–G \| E–D–C–A → G4 (terugwandelend); C knipoog naar intro D–B–D–E \| C–E–G \| F# → G5 | **B gekozen**; laatste belletje → fietsbel |
 | 3 | Alle = ronde-2-B, tot de bel bit-identiek (normalisatie via referentiemix mét het oude belletje). Slotbelletje vervangen door `bike_bell`, ná de uitfade toegevoegd met eigen uitklank (bestand ~0,6 s langer, `TAIL` 1,3 s): A één tring (tel 5, −17); B tring-tring (tel 4,75, −17); C tring-tring verder weg (−21, lowpass 5 kHz, galm 0,4, pan 0,65) | **C het beste**, maar de bel mag niet in de uitfade van de muziek vallen (klinkt raar) |
-| 4 | Alle = ronde-3-C (verre fietsbel), tot tel 4,2 bit-identiek. Bel nooit meer meegefadet, eigen uitklank 2 s. A bel pas ná de volledig uitgefade muziek (muziek = vorige C; 6,6 s); B bel op tel 4½ tijdens de landing op vol volume, muziek-uitfade (1 s) begint pas 0,15 s na de bel (5,6 s); C idem op tel 4¼, direct na de slotklap (5,4 s) | **B gekozen als definitief** |
+| 4 | Alle = ronde-3-C (verre fietsbel), tot tel 4,2 bit-identiek. Bel nooit meer meegefadet, eigen uitklank 2 s. A bel pas ná de volledig uitgefade muziek (muziek = vorige C; 6,6 s); B bel op tel 4½ tijdens de landing op vol volume, muziek-uitfade (1 s) begint pas 0,15 s na de bel (5,6 s); C idem op tel 4¼, direct na de slotklap (5,4 s) | **B gekozen als definitief**; later (2026-11-17): "B voor nu op A, en voor B en C een nieuwe versie waar de fietsbel vervangen is met een zachte toeter van een auto" |
+| 5 | A = ronde-4-B (bit-identiek). Nieuw `car_horn` (twee zaagtand-hoorns G4+B4 = grote terts op het G-slotakkoord, drive + filters, `soft`), los van de muziek-fade zoals de bel; muziek bit-identiek aan A. B alleen de **slotbel** → toet-toet (tel 4½, lowpass 3 kHz, galm 0,4, pan 0,65); C ook het **openingsbelletje** → één verre toet (0,1 s, −20; oude bel telt nog mee in de normalisatie-referentie). Gemeten: toeter op −21 (= bel-gain) zat in zijn band ~20 dB onder de piano (bel ~7 dB) → gemaskeerd, dus slottoeter op **−13** | "Toeter bij B en C iets harder, hoor hem bijna niks. Verander niks anders" |
+| 6 | Alles = ronde 5; alleen toeters +6 dB: slottoeter −13→**−7**, openingstoet −20→**−14** (A bit-identiek, B/C veranderen alleen waar de toeter klinkt; piek −7,2 dBFS) | "Nog iets harder" |
+| 7 | Alles = ronde 6; alleen toeters +4 dB: slottoeter −7→**−3**, openingstoet −14→**−10** (A bit-identiek; piek −5,9 dBFS) | "Toeters iets langer, iets langere pauze tussen de twee toets" |
+| 8 | Alles = ronde 7; slottoeter toot_dur 0,16→**0,22** s, gap 0,10→**0,16** s; openingstoet (C) 0,22→**0,30** s (A bit-identiek). Galm (mix 0,4) vult de pauze deels: dip ~6 dB (ronde 7 ~5 dB) | "Nog langer uit laten lopen" (geïnterpreteerd: langere toets die geleidelijk uitsterven) |
+| 9 | Alles = ronde 8; `car_horn` kreeg `release` (default 0,035 = oude rondes bit-identiek). Slottoeter toot_dur 0,22→**0,30** s + release **0,15** s, gap 0,16 gelijk; openingstoet (C) 0,30→**0,40** s + release 0,2 (A bit-identiek; piek −5,0). Let op: uitloop eet de pauze grotendeels op (dip ~5 dB) | — (wacht op feedback) |
 
 ## 3e. Logboek transitie Shirtje Zoeken
 Verzoek: "Nu de transitie voor shirtje zoeken". De rubriek gaat over **een verzamelaar van items van de club vinden**
@@ -189,6 +194,7 @@ Effecten starten direct (fade-in 20 ms, géén fade over een effect) en zijn uit
 8. **Werk §2–§4 van dit bestand bij.**
 
 Downloadknop levert MP3 (320 kbps, via `lameenc`, endpoint `/mp3/<pad>.wav?name=...`; MP3 wordt naast de WAV gecachet).
+Geeft de download "Site was niet beschikbaar"/HTTP 500 → `lameenc` ontbreekt in de huidige Python: `python -m pip install lameenc` (geen serverherstart nodig).
 
 ## 6. Optie-script en engine
 ```python
@@ -210,7 +216,7 @@ def render():
 - `engine/ambience.py`: crowd (stadionpubliek, `excitement` 0..1), applause, whistle, pea_whistle (realistischer,
   met balletje), final_whistle (`kind='classic'|'pea'`), wind, crackle,
   old_radio, fade_away (wegsterven met dichtgaand filter), slow_noise,
-  bike_bell (fietsbel tring-tring), footstep, hanger_click, rack_slide (kledingrek), rummage (doos/kleding), page_turn (bladzijde omslaan), city (verkeer, passerende auto, stemmen; normaliseert op piek →
+  bike_bell (fietsbel tring-tring), car_horn (zachte autotoeter toet-toet, gestemd; zit in het piano-register → ~18 dB meer gain nodig dan de bel: −3 i.p.v. −21), footstep, hanger_click, rack_slide (kledingrek), rummage (doos/kleding), page_turn (bladzijde omslaan), city (verkeer, passerende auto, stemmen; normaliseert op piek →
   in de mix rond gain 0 dB zetten en meten, ~15 dB onder de muziek).
 - `engine/voice.py`: load_voice (16 kHz mono), sing_syllable, sing(events=[(start, noot, duur, lettergreep)],
   formant, cents, vib, scoop, even). Lettergrepen voor "Pad door de Stad": `projects/transitie-stad/assets/syl_*.wav`.

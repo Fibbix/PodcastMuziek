@@ -210,6 +210,34 @@ def bike_bell(rings=2, ring_dur=0.2, gap=0.1, pitch=2950, rate=26.0):
     return _end_fade(y / (np.max(np.abs(y)) + 1e-9) * 0.8)
 
 
+def car_horn(toots=2, toot_dur=0.16, gap=0.1, pitches=(392.0, 494.0), soft=0.6, release=0.035):
+    """Autotoeter 'toet-toet' (mono): twee schijfhoorns tegelijk (standaard G4 + B4 = grote terts,
+    past bij G groot). soft 0..1 = hoe zacht/rond (meer lowpass, minder rauwe boventonen).
+    release = uitklinktijd (s) na elke toet (lineair aflopend)."""
+    total = toots * (toot_dur + gap) + max(0.05, release + 0.015)
+    n = ns(total)
+    t = tvec(total)
+    gate = np.zeros(n)
+    for k in range(toots):
+        t0 = k * (toot_dur + gap)
+        a = np.clip((t - t0) / 0.012, 0, 1)                       # snelle aanzet
+        if release == 0.035:
+            r = np.clip((t0 + toot_dur - t) / 0.035, 0, 1)        # korte loslaat (oude rondes bit-identiek)
+        else:
+            r = np.clip((t0 + toot_dur + release - 0.035 - t) / release, 0, 1)  # langer uitlopen
+        gate = np.maximum(gate, np.minimum(a, r) * (t >= t0))
+    y = np.zeros(n)
+    for i, f in enumerate(pitches):
+        bend = 1 - 0.015 * np.exp(-(t % (toot_dur + gap)) / 0.02)  # kleine 'aanblaas'-dip in toonhoogte
+        fr = f * bend * (1 + rng().normal(0, 0.002))
+        y += osc('saw', fr, total) * (1.0 if i == 0 else 0.8)
+    y = drive(y * 0.6, 1.5 + (1 - soft) * 2)                      # brommerige membraanklank
+    y = bandpass(y, 1100, 0.7) * 0.6 + lowpass(y, 2400 - 1600 * soft) * 0.6
+    y = lowpass(y, 5000 - 3000 * soft)
+    y *= gate
+    return _end_fade(y / (np.max(np.abs(y)) + 1e-9) * 0.8)
+
+
 def footstep(hard=0.6):
     """Eén voetstap op straat (mono): hak-tik + doffe dreun + wat geschuifel."""
     dur = 0.25
